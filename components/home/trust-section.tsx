@@ -4,179 +4,166 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
-  HeartPulse,
-  Car,
+  Users,
+  Briefcase,
   Building2,
-  Ship,
-  Plane,
+  Landmark,
   ArrowRight,
+  CheckCircle2,
 } from "lucide-react";
 
 import Container from "../ui/container";
 
-const products = [
+const sectors = [
   {
-    icon: HeartPulse,
-    title: "Medical Insurance",
+    icon: Users,
+    title: "Individuals & Families",
     description:
-      "Quality healthcare protection for individuals, families and corporate teams.",
-    color: "from-cyan-500 to-blue-500",
+      "Protecting health, property, vehicles and financial wellbeing through reliable insurance solutions tailored to everyday life.",
   },
   {
-    icon: Car,
-    title: "Motor Insurance",
+    icon: Briefcase,
+    title: "Businesses & SMEs",
     description:
-      "Comprehensive and third-party vehicle protection for personal and business use.",
-    color: "from-blue-500 to-indigo-500",
+      "Helping businesses operate confidently with risk management and insurance solutions that protect assets, operations and employees.",
   },
   {
     icon: Building2,
-    title: "Property Insurance",
+    title: "NGOs & Development Partners",
     description:
-      "Protect homes, offices and commercial assets against unexpected losses.",
-    color: "from-indigo-500 to-violet-500",
+      "Supporting humanitarian organizations, development projects and non-profit initiatives with dependable insurance protection.",
   },
   {
-    icon: Ship,
-    title: "Marine & Transit",
+    icon: Landmark,
+    title: "Government & Institutions",
     description:
-      "Reliable coverage for goods, cargo and business assets in transit.",
-    color: "from-sky-500 to-cyan-500",
-  },
-  {
-    icon: Plane,
-    title: "Travel Insurance",
-    description:
-      "Peace of mind and protection wherever business or leisure takes you.",
-    color: "from-cyan-500 to-teal-500",
+      "Providing professional insurance services and risk solutions for public institutions, agencies and large organizations.",
   },
 ];
 
-const floatingImages = [
-  {
-    src: "/images/medical.jpg",
-    className: "left-0 top-0 h-52 w-52",
-    duration: 6,
-  },
-  {
-    src: "/images/motor.jpg",
-    className: "right-0 top-20 h-64 w-64",
-    duration: 8,
-  },
-  {
-    src: "/images/property.jpg",
-    className: "left-20 bottom-24 h-60 w-60",
-    duration: 7,
-  },
-  {
-    src: "/images/travel.jpg",
-    className: "right-8 bottom-0 h-48 w-48",
-    duration: 9,
-  },
+const highlights = [
+  "Tailored Insurance Solutions",
+  "Professional Risk Advisory",
+  "Responsive Claims Support",
+  "Trusted Local Expertise",
 ];
 
-export default function InsuranceSolutionsSection() {
+const gallery = [
+  "/images/family.jpg",
+  "/images/business.jpg",
+  "/images/healthcare.jpg",
+  "/images/community.jpg",
+];
+
+export default function WhoWeServeSection() {
   return (
-    <section className="relative overflow-hidden py-24 lg:py-32">
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-white" />
-
-      <div className="absolute left-0 top-0 h-[500px] w-[500px] rounded-full bg-blue-100/40 blur-3xl" />
-      <div className="absolute right-0 bottom-0 h-[500px] w-[500px] rounded-full bg-cyan-100/40 blur-3xl" />
-
-      <Container className="relative">
-        <div className="grid items-center gap-20 lg:grid-cols-2">
-          {/* Left */}
+    <section className="bg-slate-50 py-20 lg:py-32">
+      <Container>
+        <div className="grid items-center gap-16 lg:grid-cols-[0.95fr_1.05fr]">
+          {/* Content */}
           <div>
-            <span className="inline-flex rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-semibold text-[#2f3e9e]">
-              Insurance Solutions
+            <span className="inline-flex rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-[#2f3e9e]">
+              Who We Serve
             </span>
 
             <h2 className="mt-6 text-4xl font-bold tracking-tight text-slate-950 md:text-5xl lg:text-6xl">
-              Protection For Every
-              <span className="block bg-gradient-to-r from-[#2f3e9e] to-cyan-600 bg-clip-text text-transparent">
-                Stage Of Life
+              Serving South Sudan
+              <span className="block text-[#2f3e9e]">
+                With Confidence
               </span>
             </h2>
 
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">
-              Discover comprehensive insurance solutions designed to
-              protect individuals, families, businesses and organisations
-              across South Sudan.
+              From families protecting their future to businesses,
+              NGOs and institutions managing complex risks, Koryom
+              delivers insurance solutions designed around the unique
+              needs of every client.
             </p>
 
-            <div className="mt-10 space-y-4">
-              {products.map((product, index) => {
-                const Icon = product.icon;
+            <div className="mt-10 grid gap-4">
+              {highlights.map((item) => (
+                <div
+                  key={item}
+                  className="flex items-center gap-3"
+                >
+                  <CheckCircle2 className="h-5 w-5 text-[#2f3e9e]" />
 
-                return (
-                  <motion.div
-                    key={product.title}
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      duration: 0.6,
-                      delay: index * 0.08,
-                    }}
-                    whileHover={{
-                      x: 8,
-                    }}
-                    className="group"
-                  >
-                    <Link
-                      href="/products"
-                      className="flex items-center gap-4 rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:border-cyan-200 hover:shadow-xl"
-                    >
-                      <div
-                        className={`flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${product.color} text-white`}
-                      >
-                        <Icon size={24} />
-                      </div>
-
-                      <div className="flex-1">
-                        <h3 className="font-bold text-slate-900">
-                          {product.title}
-                        </h3>
-
-                        <p className="mt-1 text-sm text-slate-600">
-                          {product.description}
-                        </p>
-                      </div>
-
-                      <ArrowRight className="h-5 w-5 text-slate-400 transition group-hover:text-blue-700" />
-                    </Link>
-                  </motion.div>
-                );
-              })}
+                  <span className="font-medium text-slate-700">
+                    {item}
+                  </span>
+                </div>
+              ))}
             </div>
+
+            <Link
+              href="/about"
+              className="mt-10 inline-flex items-center gap-2 rounded-full bg-[#2f3e9e] px-7 py-4 font-semibold text-white transition-all duration-300 hover:bg-[#24317f]"
+            >
+              Learn More About Koryom
+              <ArrowRight size={18} />
+            </Link>
           </div>
 
-          {/* Right */}
-          <div className="relative h-[700px]">
-            {floatingImages.map((image, index) => (
+          {/* Image Collage */}
+          <div className="grid grid-cols-2 gap-4">
+            {gallery.map((image, index) => (
               <motion.div
-                key={index}
-                animate={{
-                  y: [0, -15, 0],
-                }}
+                key={image}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{
-                  duration: image.duration,
-                  repeat: Infinity,
-                  ease: "easeInOut",
+                  duration: 0.5,
+                  delay: index * 0.1,
                 }}
-                className={`absolute overflow-hidden rounded-full shadow-[0_25px_80px_rgba(0,0,0,0.12)] ${image.className}`}
+                className={`relative overflow-hidden rounded-3xl ${
+                  index === 1 || index === 2
+                    ? "h-[260px] lg:h-[320px]"
+                    : "h-[220px] lg:h-[280px]"
+                }`}
               >
                 <Image
-                  src={image.src}
+                  src={image}
                   alt=""
                   fill
-                  className="object-cover"
+                  className="object-cover transition duration-700 hover:scale-105"
                 />
               </motion.div>
             ))}
-
-            <div className="absolute left-1/2 top-1/2 -z-10 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-cyan-200 to-blue-200 blur-3xl" />
           </div>
+        </div>
+
+        {/* Audience Cards */}
+        <div className="mt-20 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {sectors.map((sector, index) => {
+            const Icon = sector.icon;
+
+            return (
+              <motion.div
+                key={sector.title}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.08,
+                }}
+                className="group rounded-3xl border border-slate-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              >
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-100 text-[#2f3e9e] transition duration-300 group-hover:bg-[#2f3e9e] group-hover:text-white">
+                  <Icon size={24} />
+                </div>
+
+                <h3 className="mt-6 text-xl font-bold text-slate-900">
+                  {sector.title}
+                </h3>
+
+                <p className="mt-4 leading-relaxed text-slate-600">
+                  {sector.description}
+                </p>
+              </motion.div>
+            );
+          })}
         </div>
       </Container>
     </section>

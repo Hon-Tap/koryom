@@ -3,16 +3,20 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import {
-  Car,
   HeartPulse,
-  Building2,
+  Car,
   Home,
-  Plane,
   Ship,
+  Plane,
+  ShieldCheck,
   ArrowRight,
-  CheckCircle2,
+  Check,
+  Users,
+  Briefcase,
+  Building2,
+  Clock3,
 } from "lucide-react";
 
 import Container from "@/components/ui/container";
@@ -23,193 +27,210 @@ const products = [
     title: "Medical Insurance",
     short: "Medical",
     icon: HeartPulse,
-    image: "/images/medical.jpg",
+    image: "/images/med.png",
+    category: "Health Protection",
+    audience: "Individuals, Families & Corporate Teams",
     description:
-      "Quality healthcare protection for individuals, families and corporate organizations.",
-    benefits: [
+      "Access quality healthcare with comprehensive medical protection designed to keep you and your loved ones covered when it matters most.",
+
+    highlights: [
       "In-Patient Cover",
       "Out-Patient Cover",
-      "Corporate Plans",
-      "Emergency Support",
+      "Corporate Medical Plans",
+      "Emergency Treatment",
     ],
+
+    stat: "24/7 Medical Support",
   },
+
   {
     id: "motor",
-    title: "Motor Insurance",
+    title: "Motor Vehicle Insurance",
     short: "Motor",
     icon: Car,
-    image: "/images/motor.jpg",
+    image: "/images/motorinsur.png",
+    category: "Vehicle Protection",
+    audience: "Private, Commercial & Fleet Owners",
     description:
-      "Comprehensive and third-party vehicle protection for personal and commercial use.",
-    benefits: [
-      "Third Party Cover",
+      "Protect your vehicle against accidents, theft, fire and third-party liabilities while staying confidently on the road.",
+
+    highlights: [
       "Comprehensive Cover",
-      "Theft Protection",
-      "Accident Support",
+      "Third Party Liability",
+      "Theft & Fire Protection",
+      "Accidental Damage",
     ],
+
+    stat: "Comprehensive & TPO Options",
   },
+
   {
     id: "property",
-    title: "Property Insurance",
+    title: "Fire & Burglary Insurance",
     short: "Property",
     icon: Home,
-    image: "/images/property.jpg",
+    image: "/images/property.png",
+    category: "Property Protection",
+    audience: "Homeowners & Businesses",
     description:
-      "Protect homes, offices and valuable assets against damage and loss.",
-    benefits: [
-      "Home Protection",
-      "Fire Cover",
-      "Asset Security",
-      "Office Coverage",
+      "Secure buildings, office equipment, inventory and valuable assets against fire, burglary and unexpected losses.",
+
+    highlights: [
+      "Fire & Allied Perils",
+      "Burglary Protection",
+      "Asset Coverage",
+      "Building Protection",
     ],
+
+    stat: "Business & Home Security",
   },
+
   {
-    id: "business",
-    title: "Business Insurance",
-    short: "Business",
-    icon: Building2,
-    image: "/images/business.jpg",
+    id: "marine",
+    title: "Marine & Transit Insurance",
+    short: "Marine",
+    icon: Ship,
+    image: "/images/marin.png",
+    category: "Cargo Protection",
+    audience: "Importers, Exporters & Traders",
     description:
-      "Reliable protection for businesses, employees and operations.",
-    benefits: [
-      "Liability Cover",
-      "Employee Cover",
-      "Asset Protection",
-      "Risk Management",
+      "Comprehensive protection for cargo, goods and shipments throughout local and international transit.",
+
+    highlights: [
+      "Marine Cargo Cover",
+      "Goods In Transit",
+      "Import Protection",
+      "Export Coverage",
     ],
+
+    stat: "Global Transit Coverage",
   },
+
   {
     id: "travel",
     title: "Travel Insurance",
     short: "Travel",
     icon: Plane,
-    image: "/images/travel.jpg",
+    image: "/images/travel.png",
+    category: "Travel Protection",
+    audience: "Business & Leisure Travellers",
     description:
-      "Travel confidently with protection against unexpected disruptions.",
-    benefits: [
+      "Travel confidently with coverage against medical emergencies, trip interruptions and travel-related risks.",
+
+    highlights: [
       "Medical Emergencies",
-      "Trip Delays",
+      "Trip Cancellation",
       "Lost Baggage",
       "Travel Assistance",
     ],
+
+    stat: "Worldwide Travel Support",
+  },
+
+  {
+    id: "life",
+    title: "Life Insurance Solutions",
+    short: "Life",
+    icon: ShieldCheck,
+    image: "/images/hero-ss.jpg",
+    category: "Life Protection",
+    audience: "Individuals, Families & Organisations",
+    description:
+      "Financial protection solutions including Group Life, Credit Life and Last Expense cover for lasting peace of mind.",
+
+    highlights: [
+      "Group Life Cover",
+      "Credit Life",
+      "Last Expense Cover",
+      "Family Protection",
+    ],
+
+    stat: "Long-Term Financial Security",
+  },
+];
+
+const trustStats = [
+  {
+    icon: Users,
+    value: "Individuals",
+    label: "Personal Protection",
   },
   {
-    id: "marine",
-    title: "Marine Insurance",
-    short: "Marine",
-    icon: Ship,
-    image: "/images/marine.jpg",
-    description:
-      "Comprehensive cover for cargo, goods and marine transportation.",
-    benefits: [
-      "Cargo Cover",
-      "Transit Protection",
-      "Import Security",
-      "Export Coverage",
-    ],
+    icon: Building2,
+    value: "Businesses",
+    label: "Corporate Solutions",
+  },
+  {
+    icon: Briefcase,
+    value: "Custom",
+    label: "Tailored Coverage",
   },
 ];
 
 export default function InsuranceProductsSection() {
   const [active, setActive] = useState(products[0]);
 
-  const activeIndex = products.findIndex(
-    (product) => product.id === active.id
-  );
-
   return (
-    <section className="relative overflow-hidden bg-slate-50 py-20 lg:py-32">
-      {/* Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_#dbeafe,_transparent_35%),radial-gradient(circle_at_bottom_right,_#cffafe,_transparent_35%),#f8fafc]" />
-
-      <div className="absolute -left-32 top-0 h-[450px] w-[450px] rounded-full bg-blue-100/50 blur-3xl" />
-      <div className="absolute -right-32 bottom-0 h-[450px] w-[450px] rounded-full bg-cyan-100/50 blur-3xl" />
-
-      <Container className="relative">
+    <section className="bg-white py-20 lg:py-32">
+      <Container>
         {/* Header */}
-        <div className="mx-auto mb-12 max-w-3xl text-center lg:mb-16">
-          <span className="inline-flex rounded-full border border-blue-200 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.3em] text-[#2f3e9e] shadow-sm">
+        <div className="mx-auto max-w-4xl text-center">
+          <span className="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#2f3e9e]">
             Insurance Solutions
           </span>
 
           <h2 className="mt-6 text-4xl font-bold tracking-tight text-slate-950 md:text-5xl lg:text-6xl">
-            Protection For Every
-            <span className="block bg-gradient-to-r from-[#2f3e9e] to-cyan-600 bg-clip-text text-transparent">
-              Need & Every Stage
+            Protection Designed For
+            <span className="block text-[#2f3e9e]">
+              Every Stage Of Life
             </span>
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-slate-600">
-            Discover insurance solutions designed to safeguard
-            individuals, families, businesses and investments
-            across South Sudan.
+          <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-600">
+            Explore comprehensive insurance solutions designed to
+            protect individuals, families, businesses and valuable
+            assets across South Sudan.
           </p>
         </div>
 
-        {/* Product Navigation */}
-        <div className="mb-8 lg:mb-10">
-          <div className="-mx-4 overflow-hidden px-4">
-            <div className="scrollbar-none flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory">
-              {products.map((product) => {
-                const Icon = product.icon;
-                const isActive = active.id === product.id;
+        {/* Tabs */}
+        <div className="mt-14">
+          <div className="flex gap-3 overflow-x-auto pb-3">
+            {products.map((product) => {
+              const Icon = product.icon;
+              const isActive = active.id === product.id;
 
-                return (
-                  <button
-                    key={product.id}
-                    onClick={() => setActive(product)}
-                    className={`group relative snap-start flex-shrink-0 rounded-[28px] border transition-all duration-500 ${
-                      isActive
-                        ? "border-[#2f3e9e] bg-[#2f3e9e] text-white shadow-xl shadow-blue-900/20"
-                        : "border-slate-200 bg-white text-slate-700 hover:border-blue-200 hover:shadow-lg"
-                    }`}
-                  >
-                    <div className="flex w-[145px] flex-col items-center p-5 text-center">
-                      <div
-                        className={`mb-3 flex h-12 w-12 items-center justify-center rounded-2xl transition-all ${
-                          isActive
-                            ? "bg-white/15 text-white"
-                            : "bg-blue-50 text-[#2f3e9e]"
-                        }`}
-                      >
-                        <Icon size={22} />
-                      </div>
-
-                      <span className="text-sm font-bold leading-tight">
-                        {product.short}
-                      </span>
-
-                      {isActive && (
-                        <motion.div
-                          layoutId="activeIndicator"
-                          className="absolute bottom-0 left-1/2 h-1 w-10 -translate-x-1/2 rounded-full bg-cyan-400"
-                        />
-                      )}
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
+              return (
+                <button
+                  key={product.id}
+                  onClick={() => setActive(product)}
+                  className={`group flex min-w-fit items-center gap-2 rounded-full border px-5 py-3 text-sm font-semibold transition-all duration-300 ${
+                    isActive
+                      ? "border-[#2f3e9e] bg-[#2f3e9e] text-white"
+                      : "border-slate-200 bg-white text-slate-700 hover:border-[#2f3e9e]/30 hover:text-[#2f3e9e]"
+                  }`}
+                >
+                  <Icon size={16} />
+                  {product.short}
+                </button>
+              );
+            })}
           </div>
-
-          <p className="mt-2 text-center text-xs font-medium text-slate-400 lg:hidden">
-            ← Swipe to explore insurance solutions →
-          </p>
         </div>
 
-        {/* Featured Product */}
+        {/* Main Product Card */}
         <AnimatePresence mode="wait">
           <motion.div
             key={active.id}
-            initial={{ opacity: 0, y: 25 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -25 }}
-            transition={{ duration: 0.4 }}
-            className="overflow-hidden rounded-[32px] bg-white shadow-[0_25px_80px_rgba(0,0,0,0.08)]"
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.35 }}
+            className="mt-10 overflow-hidden rounded-[32px] border border-slate-200 bg-white"
           >
-            <div className="grid lg:min-h-[650px] lg:grid-cols-[1.05fr_0.95fr]">
-              {/* Left Image */}
-              <div className="relative h-[320px] sm:h-[420px] lg:h-auto">
+            <div className="grid lg:grid-cols-[1fr_1fr]">
+              {/* Image */}
+              <div className="relative h-[350px] sm:h-[450px] lg:h-[700px]">
                 <Image
                   src={active.image}
                   alt={active.title}
@@ -218,65 +239,111 @@ export default function InsuranceProductsSection() {
                   className="object-cover"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-900/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
 
-                <div className="absolute right-5 top-5 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-md">
-                  {String(activeIndex + 1).padStart(2, "0")} /{" "}
-                  {String(products.length).padStart(2, "0")}
-                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-10">
+                  <span className="inline-flex rounded-full bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-md">
+                    {active.category}
+                  </span>
 
-                <div className="absolute bottom-6 left-6 right-6 text-white lg:bottom-10 lg:left-10">
-                  <div className="mb-4 inline-flex rounded-full bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] backdrop-blur-md">
-                    Insurance Solution
-                  </div>
-
-                  <h3 className="text-3xl font-bold sm:text-4xl lg:text-5xl">
+                  <h3 className="mt-5 text-3xl font-bold text-white lg:text-5xl">
                     {active.title}
                   </h3>
 
-                  <p className="mt-4 max-w-lg text-sm leading-relaxed text-slate-200 lg:text-lg">
+                  <p className="mt-4 max-w-xl text-slate-200">
                     {active.description}
                   </p>
                 </div>
               </div>
 
-              {/* Right Content */}
-              <div className="flex flex-col justify-center bg-gradient-to-br from-white via-slate-50 to-cyan-50 p-6 sm:p-8 lg:p-12">
-                <span className="mb-3 text-xs font-bold uppercase tracking-[0.3em] text-cyan-600">
-                  Coverage Benefits
-                </span>
+              {/* Content */}
+              <div className="flex flex-col justify-center p-8 lg:p-14">
+                <div className="inline-flex w-fit items-center rounded-full bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700">
+                  {active.audience}
+                </div>
 
-                <h3 className="text-2xl font-bold text-slate-950 lg:text-3xl">
-                  {active.title}
+                <h3 className="mt-6 text-3xl font-bold text-slate-950 lg:text-4xl">
+                  What Is Covered
                 </h3>
 
-                <p className="mt-4 text-base leading-relaxed text-slate-600 lg:text-lg">
-                  {active.description}
+                <p className="mt-4 text-lg leading-relaxed text-slate-600">
+                  Our {active.title.toLowerCase()} solution provides
+                  reliable protection tailored to your needs while
+                  ensuring peace of mind and financial security.
                 </p>
 
-                {/* Benefits */}
-                <div className="mt-8 grid grid-cols-2 gap-3">
-                  {active.benefits.map((benefit) => (
+                {/* Coverage */}
+                <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                  {active.highlights.map((item) => (
                     <div
-                      key={benefit}
-                      className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
+                      key={item}
+                      className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4"
                     >
-                      <CheckCircle2
-                        size={18}
-                        className="text-cyan-600"
-                      />
+                      <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#2f3e9e]/10">
+                        <Check
+                          size={14}
+                          className="text-[#2f3e9e]"
+                        />
+                      </div>
 
-                      <span className="text-sm font-medium text-slate-700">
-                        {benefit}
+                      <span className="font-medium text-slate-700">
+                        {item}
                       </span>
                     </div>
                   ))}
                 </div>
 
-                <div className="mt-10 flex flex-wrap gap-4">
+                {/* Highlight Card */}
+                <div className="mt-8 rounded-3xl bg-[#2f3e9e] p-6 text-white">
+                  <div className="flex items-center gap-3">
+                    <Clock3 size={22} />
+
+                    <div>
+                      <h4 className="font-semibold">
+                        Coverage Highlight
+                      </h4>
+
+                      <p className="text-sm text-blue-100">
+                        {active.stat}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Trust Stats */}
+                <div className="mt-8 grid grid-cols-3 gap-4">
+                  {trustStats.map((item) => {
+                    const Icon = item.icon;
+
+                    return (
+                      <div
+                        key={item.label}
+                        className="rounded-2xl border border-slate-200 p-4 text-center"
+                      >
+                        <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100">
+                          <Icon
+                            size={18}
+                            className="text-[#2f3e9e]"
+                          />
+                        </div>
+
+                        <p className="mt-3 font-semibold text-slate-900">
+                          {item.value}
+                        </p>
+
+                        <p className="mt-1 text-xs text-slate-500">
+                          {item.label}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* CTA */}
+                <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                   <Link
                     href="/quote"
-                    className="inline-flex items-center gap-3 rounded-2xl bg-[#2f3e9e] px-7 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-[#24317f]"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#2f3e9e] px-8 py-4 font-semibold text-white transition-all duration-300 hover:bg-[#24317f]"
                   >
                     Get a Quote
                     <ArrowRight size={18} />
@@ -284,11 +351,16 @@ export default function InsuranceProductsSection() {
 
                   <Link
                     href="/products"
-                    className="inline-flex items-center rounded-2xl border border-slate-300 bg-white px-7 py-4 font-semibold text-slate-700 transition-all duration-300 hover:border-[#2f3e9e] hover:text-[#2f3e9e]"
+                    className="inline-flex items-center justify-center rounded-full border border-slate-300 px-8 py-4 font-semibold text-slate-700 transition-all duration-300 hover:border-[#2f3e9e] hover:text-[#2f3e9e]"
                   >
                     Learn More
                   </Link>
                 </div>
+
+                <p className="mt-4 text-sm text-slate-500">
+                  Speak with our team for tailored recommendations
+                  and a fast, no-obligation quotation.
+                </p>
               </div>
             </div>
           </motion.div>
