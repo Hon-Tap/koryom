@@ -6,16 +6,16 @@ import StatsSection from "@/components/home/stats-section";
 import TestimonialsSection from "@/components/home/testimonials-section";
 import PartnersSection from "@/components/home/partners-section";
 import CTASection from "@/components/home/cta-section";
-import Footer from "@/components/layout/footer";
+// import Footer from "@/components/layout/footer";
 
-import Navbar from "@/components/layout/navbar";
-import TopBar from "@/components/layout/top-bar";
+// import Navbar from "@/components/layout/navbar";
+// import TopBar from "@/components/layout/top-bar";
 
 export default function Home() {
   return (
     <>
-      <TopBar />
-      <Navbar />
+      {/* <TopBar />
+      <Navbar /> */}
 
       <main>
         <Hero />
@@ -27,7 +27,7 @@ export default function Home() {
         <PartnersSection />
         <CTASection />
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

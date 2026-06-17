@@ -11,35 +11,18 @@ import {
   Mail,
   MapPin,
   X,
+  Sparkles,
 } from "lucide-react";
 
 import Container from "../ui/container";
 
 const products = [
-  {
-    title: "Motor Insurance",
-    href: "/products/motor-insurance",
-  },
-  {
-    title: "Medical Insurance",
-    href: "/products/medical-insurance",
-  },
-  {
-    title: "Property Insurance",
-    href: "/products/property-insurance",
-  },
-  {
-    title: "Business Insurance",
-    href: "/products/business-insurance",
-  },
-  {
-    title: "Travel Insurance",
-    href: "/products/travel-insurance",
-  },
-  {
-    title: "Marine Insurance",
-    href: "/products/marine-insurance",
-  },
+  { title: "Motor Insurance", href: "/products" },
+  { title: "Medical Insurance", href: "/products" },
+  { title: "Property Insurance", href: "/products" },
+  { title: "Business Insurance", href: "/products" },
+  { title: "Travel Insurance", href: "/products" },
+  { title: "Marine Insurance", href: "/products" },
 ];
 
 export default function Navbar() {
@@ -48,12 +31,8 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -62,15 +41,10 @@ export default function Navbar() {
       <header
         className={`
           sticky top-0 z-50
-          border-b border-slate-200/70
-          bg-white/95
-          backdrop-blur-xl
+          border-b border-slate-200/60
+          bg-white/90 backdrop-blur-2xl
           transition-all duration-500
-          ${
-            scrolled
-              ? "shadow-xl shadow-slate-200/50"
-              : "shadow-sm"
-          }
+          ${scrolled ? "shadow-xl shadow-slate-200/40" : "shadow-sm"}
         `}
       >
         <Container>
@@ -81,11 +55,8 @@ export default function Navbar() {
               ${scrolled ? "h-20" : "h-24"}
             `}
           >
-            {/* Logo */}
-            <Link
-              href="/"
-              className="group flex items-center"
-            >
+            {/* LOGO */}
+            <Link href="/" className="flex items-center">
               <Image
                 src="/logo (3).png"
                 alt="Koryom Insurance"
@@ -95,105 +66,55 @@ export default function Navbar() {
                 className={`
                   w-auto object-contain
                   transition-all duration-500
-                  ${
-                    scrolled
-                      ? "h-14 lg:h-16"
-                      : "h-16 lg:h-[72px]"
-                  }
+                  ${scrolled ? "h-14 lg:h-16" : "h-16 lg:h-[72px]"}
                 `}
               />
             </Link>
 
-            {/* Desktop Navigation */}
+            {/* DESKTOP NAV */}
             <nav className="hidden lg:flex items-center gap-10">
               {[
                 { title: "Home", href: "/" },
                 { title: "About Us", href: "/about" },
+                { title: "Claims", href: "/claims" },
+                { title: "Contact", href: "/contact" },
               ].map((item) => (
                 <Link
                   key={item.title}
                   href={item.href}
-                  className="
-                    group relative
-                    font-medium text-slate-700
-                    transition-all duration-300
-                    hover:text-[#2f3e9e]
-                  "
+                  className="relative font-medium text-slate-700 hover:text-[#2f3e9e] transition"
                 >
                   {item.title}
-
-                  <span
-                    className="
-                      absolute -bottom-2 left-0
-                      h-[2px] w-0
-                      bg-[#2f3e9e]
-                      transition-all duration-300
-                      group-hover:w-full
-                    "
-                  />
+                  <span className="absolute -bottom-2 left-0 h-[2px] w-0 bg-[#2f3e9e] transition-all group-hover:w-full" />
                 </Link>
               ))}
 
-              {/* Products */}
-              <div className="group relative">
-                <button
-                  className="
-                    flex items-center gap-1
-                    font-medium text-slate-700
-                    transition-all duration-300
-                    hover:text-[#2f3e9e]
-                  "
-                >
+              {/* PRODUCTS DROPDOWN */}
+              <div className="relative group">
+                <button className="flex items-center gap-1 font-medium text-slate-700 hover:text-[#2f3e9e] transition">
                   Products
-
-                  <ChevronDown
-                    className="
-                      h-4 w-4
-                      transition-transform duration-300
-                      group-hover:rotate-180
-                    "
-                  />
+                  <ChevronDown className="h-4 w-4 transition-transform group-hover:rotate-180" />
                 </button>
 
-                {/* Triangle */}
                 <div
                   className="
-                    invisible opacity-0
-                    absolute left-1/2 top-full
-                    -translate-x-1/2 translate-y-3
+                    absolute left-1/2 top-full -translate-x-1/2 pt-4
+                    opacity-0 invisible translate-y-2
+                    group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
                     transition-all duration-300
-                    group-hover:visible
-                    group-hover:opacity-100
-                    group-hover:translate-y-0
                   "
                 >
-                  <div
-                    className="
-                      mx-auto h-4 w-4
-                      rotate-45
-                      border-l border-t border-slate-100
-                      bg-white
-                    "
-                  />
+                  {/* triangle */}
+                  <div className="mx-auto h-4 w-4 rotate-45 bg-white border-l border-t border-slate-100" />
 
-                  <div
-                    className="
-                      mt-[-8px]
-                      w-80
-                      rounded-3xl
-                      border border-slate-100
-                      bg-white
-                      p-4
-                      shadow-[0_20px_60px_rgba(0,0,0,0.12)]
-                    "
-                  >
-                    <div className="mb-3 border-b border-slate-100 pb-3">
-                      <h4 className="font-semibold text-slate-900">
+                  <div className="w-80 rounded-3xl border border-slate-100 bg-white shadow-[0_25px_70px_rgba(0,0,0,0.12)] p-4">
+                    <div className="mb-3 pb-3 border-b border-slate-100">
+                      <div className="flex items-center gap-2 text-[#2f3e9e] font-semibold">
+                        <Sparkles size={16} />
                         Insurance Products
-                      </h4>
-
-                      <p className="mt-1 text-sm text-slate-500">
-                        Protection tailored to your needs.
+                      </div>
+                      <p className="text-sm text-slate-500 mt-1">
+                        Explore protection built for every stage of life.
                       </p>
                     </div>
 
@@ -202,15 +123,7 @@ export default function Navbar() {
                         <Link
                           key={product.title}
                           href={product.href}
-                          className="
-                            block rounded-xl
-                            px-4 py-3
-                            text-slate-700
-                            transition-all duration-300
-                            hover:bg-slate-50
-                            hover:pl-5
-                            hover:text-[#2f3e9e]
-                          "
+                          className="block px-4 py-3 rounded-xl text-slate-700 hover:bg-slate-50 hover:pl-5 hover:text-[#2f3e9e] transition-all"
                         >
                           {product.title}
                         </Link>
@@ -219,270 +132,146 @@ export default function Navbar() {
                   </div>
                 </div>
               </div>
-
-              {[
-                { title: "Claims", href: "/claims" },
-                { title: "Resources", href: "/resources" },
-                { title: "Contact", href: "/contact" },
-              ].map((item) => (
-                <Link
-                  key={item.title}
-                  href={item.href}
-                  className="
-                    group relative
-                    font-medium text-slate-700
-                    transition-all duration-300
-                    hover:text-[#2f3e9e]
-                  "
-                >
-                  {item.title}
-
-                  <span
-                    className="
-                      absolute -bottom-2 left-0
-                      h-[2px] w-0
-                      bg-[#2f3e9e]
-                      transition-all duration-300
-                      group-hover:w-full
-                    "
-                  />
-                </Link>
-              ))}
             </nav>
 
-            {/* Desktop CTA */}
+            {/* CTA */}
             <Link
               href="/quote"
-              className="
-                group hidden lg:flex
-                items-center gap-2
-                rounded-full
-                bg-[#2f3e9e]
-                px-7 py-3.5
-                font-semibold text-white
-                shadow-lg shadow-[#2f3e9e]/20
-                transition-all duration-300
-                hover:-translate-y-1
-                hover:bg-[#1f2d7a]
-                hover:shadow-xl
-              "
+              className="hidden lg:flex items-center gap-2 bg-[#2f3e9e] text-white px-7 py-3.5 rounded-full font-semibold shadow-lg shadow-[#2f3e9e]/20 hover:-translate-y-1 hover:bg-[#1f2d7a] transition"
             >
               Get a Quote
-
-              <ArrowRight
-                className="
-                  h-4 w-4
-                  transition-transform duration-300
-                  group-hover:translate-x-1
-                "
-              />
+              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition" />
             </Link>
 
-            {/* Premium Hamburger */}
+            {/* MOBILE BUTTON */}
             <button
               onClick={() => setMobileOpen(true)}
-              className="
-                lg:hidden
-                relative
-                flex h-12 w-12
-                items-center justify-center
-                rounded-full
-                border border-slate-200
-                bg-white
-                shadow-sm
-                transition-all duration-300
-                hover:border-[#2f3e9e]
-                hover:shadow-lg
-              "
+              className="lg:hidden flex h-12 w-12 items-center justify-center rounded-full border border-slate-200 bg-white shadow-sm"
             >
               <div className="relative h-5 w-5">
-                <span
-                  className="
-                    absolute right-0 top-0
-                    h-[3px] w-5
-                    rounded-full bg-slate-800
-                  "
-                />
-
-                <span
-                  className="
-                    absolute right-0 top-[8px]
-                    h-[3px] w-3
-                    rounded-full bg-slate-800
-                  "
-                />
-
-                <span
-                  className="
-                    absolute right-0 top-4
-                    h-[3px] w-5
-                    rounded-full bg-slate-800
-                  "
-                />
+                <span className="absolute top-0 right-0 h-[3px] w-5 bg-slate-800 rounded-full" />
+                <span className="absolute top-2 w-3 h-[3px] bg-slate-800 rounded-full right-0" />
+                <span className="absolute top-4 h-[3px] w-5 bg-slate-800 rounded-full right-0" />
               </div>
             </button>
           </div>
         </Container>
       </header>
 
-      {/* Overlay */}
+      {/* OVERLAY */}
       <div
         onClick={() => setMobileOpen(false)}
         className={`
-          fixed inset-0 z-[60]
-          bg-black/40 backdrop-blur-sm
-          transition-all duration-500
-          ${
-            mobileOpen
-              ? "visible opacity-100"
-              : "invisible opacity-0"
-          }
+          fixed inset-0 z-[60] bg-black/40 backdrop-blur-sm transition
+          ${mobileOpen ? "opacity-100 visible" : "opacity-0 invisible"}
         `}
       />
 
-      {/* Drawer */}
+      {/* MOBILE DRAWER */}
       <div
         className={`
           fixed right-0 top-0 z-[70]
           h-screen w-[88%] max-w-sm
-          bg-white
-          shadow-[0_0_80px_rgba(0,0,0,0.15)]
-          transition-all duration-500
-          ${
-            mobileOpen
-              ? "translate-x-0"
-              : "translate-x-full"
-          }
+          bg-white shadow-2xl
+          transition-transform duration-500
+          ${mobileOpen ? "translate-x-0" : "translate-x-full"}
         `}
       >
         <div className="flex h-full flex-col">
-          {/* Header */}
-          <div className="flex items-center justify-between border-b border-slate-100 p-6">
+          {/* HEADER */}
+          <div className="flex items-center justify-between p-6 border-b">
             <Image
               src="/logo (3).png"
               alt="Koryom Insurance"
-              width={220}
-              height={70}
-              className="h-14 w-auto"
+              width={200}
+              height={60}
+              className="h-12 w-auto"
             />
 
             <button
               onClick={() => setMobileOpen(false)}
-              className="
-                flex h-10 w-10
-                items-center justify-center
-                rounded-full
-                bg-slate-100
-              "
+              className="h-10 w-10 flex items-center justify-center rounded-full bg-slate-100"
             >
               <X className="h-5 w-5" />
             </button>
           </div>
 
-          {/* Navigation */}
-          <div className="flex-1 overflow-y-auto px-6 py-8">
-            <div className="space-y-6">
-              <Link href="/" className="block text-lg font-medium">
-                Home
-              </Link>
+          {/* NAV */}
+          <div className="flex-1 overflow-y-auto px-6 py-8 space-y-6">
+            <Link href="/" className="block text-lg font-medium">
+              Home
+            </Link>
 
-              <Link href="/about" className="block text-lg font-medium">
-                About Us
-              </Link>
+            <Link href="/about" className="block text-lg font-medium">
+              About Us
+            </Link>
 
-              <div>
-                <button
-                  onClick={() => setProductsOpen(!productsOpen)}
-                  className="
-                    flex w-full items-center
-                    justify-between
-                    text-lg font-medium
-                  "
-                >
-                  Products
+            {/* PRODUCTS MOBILE */}
+            <div>
+              <button
+                onClick={() => setProductsOpen(!productsOpen)}
+                className="flex w-full items-center justify-between text-lg font-medium"
+              >
+                Products
+                <ChevronDown
+                  className={`transition-transform ${
+                    productsOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
 
-                  <ChevronDown
-                    className={`
-                      transition-transform duration-300
-                      ${productsOpen ? "rotate-180" : ""}
-                    `}
-                  />
-                </button>
-
-                <div
-                  className={`
-                    overflow-hidden
-                    transition-all duration-500
-                    ${
-                      productsOpen
-                        ? "max-h-96 mt-4"
-                        : "max-h-0"
-                    }
-                  `}
-                >
-                  <div className="space-y-4 pl-4">
-                    {products.map((product) => (
-                      <Link
-                        key={product.title}
-                        href={product.href}
-                        className="block text-slate-600"
-                      >
-                        {product.title}
-                      </Link>
-                    ))}
-                  </div>
+              <div
+                className={`overflow-hidden transition-all duration-500 ${
+                  productsOpen ? "max-h-96 mt-4" : "max-h-0"
+                }`}
+              >
+                <div className="space-y-3 pl-4">
+                  {products.map((product) => (
+                    <Link
+                      key={product.title}
+                      href={product.href}
+                      className="block text-slate-600"
+                    >
+                      {product.title}
+                    </Link>
+                  ))}
                 </div>
               </div>
-
-              <Link href="/claims" className="block text-lg font-medium">
-                Claims
-              </Link>
-
-              <Link href="/resources" className="block text-lg font-medium">
-                Resources
-              </Link>
-
-              <Link href="/contact" className="block text-lg font-medium">
-                Contact
-              </Link>
             </div>
+
+            <Link href="/claims" className="block text-lg font-medium">
+              Claims
+            </Link>
+
+            <Link href="/contact" className="block text-lg font-medium">
+              Contact
+            </Link>
           </div>
 
-          {/* Footer */}
-          <div className="border-t border-slate-100 p-6">
-            <div className="mb-6 space-y-4 text-sm text-slate-600">
+          {/* FOOTER */}
+          <div className="border-t p-6 space-y-4">
+            <div className="text-sm text-slate-600 space-y-3">
               <div className="flex items-center gap-3">
                 <Phone className="h-4 w-4" />
-                <span>+211 927 815 160</span>
+                +211 927 815 160
               </div>
 
               <div className="flex items-center gap-3">
                 <Mail className="h-4 w-4" />
-                <span>koryominsurance65@gmail.com</span>
+                koryominsurance65@gmail.com
               </div>
 
               <div className="flex items-center gap-3">
                 <MapPin className="h-4 w-4" />
-                <span>Juba, South Sudan</span>
+                Juba, South Sudan
               </div>
             </div>
 
             <Link
               href="/quote"
-              className="
-                flex w-full items-center
-                justify-center gap-2
-                rounded-full
-                bg-[#2f3e9e]
-                py-4
-                font-semibold
-                text-white
-                transition-all duration-300
-                hover:bg-[#1f2d7a]
-              "
+              className="w-full flex items-center justify-center gap-2 bg-[#2f3e9e] text-white py-4 rounded-full font-semibold"
             >
               Get a Quote
-
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
