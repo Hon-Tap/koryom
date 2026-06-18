@@ -1,5 +1,3 @@
-// app/about/page.tsx
-
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -22,103 +20,83 @@ const values = [
   {
     title: "Integrity",
     description:
-      "Built on transparency, accountability, and trust in every client interaction.",
+      "Built on transparency, accountability, and absolute trust in every client interaction.",
   },
   {
     title: "Excellence",
     description:
-      "Delivering professional insurance solutions backed by responsive service.",
+      "Delivering rigorous, professional insurance solutions backed by responsive service.",
   },
   {
     title: "Innovation",
     description:
-      "Creating modern protection solutions for evolving personal and business risks.",
+      "Creating modern protection frameworks engineered for evolving personal and corporate risks.",
   },
   {
     title: "Customer Focus",
     description:
-      "Every policy, process, and decision is centered around our clients.",
+      "Centering our operational model around client stability, protection, and long-term security.",
   },
 ];
 
 const reasons = [
-  "Rapid claims support when it matters most",
-  "Comprehensive general and life insurance solutions",
-  "Tailored coverage for individuals and businesses",
-  "Professional risk advisory services",
-  "Trusted local expertise and market knowledge",
-  "Transparent service without unnecessary complexity",
+  "Rapid, dependable claims support when mitigation matters most",
+  "Comprehensive general and risk-stochastic life insurance options",
+  "Tailored risk-transference parameters for individuals and enterprise scales",
+  "Professional underwriting and proactive advisory management",
+  "Deep local expertise synced with robust regional market intelligence",
+  "Transparent contractual coverage execution absolute of unnecessary complexity",
 ];
 
 const products = [
-  {
-    icon: HeartPulse,
-    title: "Health Insurance",
-  },
-  {
-    icon: Car,
-    title: "Motor Insurance",
-  },
-  {
-    icon: Building2,
-    title: "Property Insurance",
-  },
-  {
-    icon: Ship,
-    title: "Marine Insurance",
-  },
-  {
-    icon: Briefcase,
-    title: "Business Insurance",
-  },
-  {
-    icon: Shield,
-    title: "Life Insurance",
-  },
+  { icon: HeartPulse, title: "Health Insurance" },
+  { icon: Car, title: "Motor Insurance" },
+  { icon: Building2, title: "Property Insurance" },
+  { icon: Ship, title: "Marine Insurance" },
+  { icon: Briefcase, title: "Business Insurance" },
+  { icon: Shield, title: "Life Insurance" },
 ];
 
 export default function AboutPage() {
   return (
-    <main className="bg-white">
-      {/* HERO */}
-
-      <section className="relative overflow-hidden bg-slate-950 py-32 lg:py-40">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-blue-950 to-cyan-900" />
-          <div className="absolute left-0 top-0 h-[500px] w-[500px] rounded-full bg-cyan-500/10 blur-3xl" />
-          <div className="absolute bottom-0 right-0 h-[500px] w-[500px] rounded-full bg-blue-500/10 blur-3xl" />
+    <main className="bg-white antialiased">
+      {/* HERO SECTION */}
+      <section className="relative overflow-hidden bg-slate-950 py-32 sm:py-40 lg:py-48">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-900/40 via-slate-950 to-slate-950" />
+          <div className="absolute left-1/4 top-0 h-[600px] w-[600px] rounded-full bg-cyan-500/10 blur-[120px]" />
+          <div className="absolute bottom-0 right-1/4 h-[600px] w-[600px] rounded-full bg-blue-600/10 blur-[120px]" />
         </div>
 
-        <Container>
-          <div className="relative z-10 mx-auto max-w-5xl text-center">
-            <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-blue-100 backdrop-blur-md">
-              About Koryom Insurance
+        <Container className="relative z-10">
+          <div className="mx-auto max-w-4xl text-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-cyan-300 backdrop-blur-md">
+              Koryom Insurance Company Limited
             </span>
 
-            <h1 className="mt-8 text-5xl font-bold leading-tight text-white md:text-7xl">
-              Your World,
-              <span className="block text-cyan-300">Protected.</span>
+            <h1 className="mt-8 text-4xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl">
+              Your World,{" "}
+              <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent">
+                Protected.
+              </span>
             </h1>
 
-            <p className="mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-slate-300 md:text-xl">
-              We manage the risks of today so you can focus on building a
-              bolder tomorrow. Koryom Insurance Company delivers reliable
-              protection solutions for individuals, families, organizations,
-              and businesses across South Sudan.
+            <p className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-slate-400 sm:text-lg md:text-xl">
+              Engineered to manage uncertainty, we buffer today's risk parameters so you can execute tomorrow's vision. Delivering premier corporate and consumer protection solutions across South Sudan.
             </p>
 
-            <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+            <div className="mt-12 flex flex-col justify-center gap-4 sm:flex-row sm:items-center">
               <Link
                 href="/quote"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-8 py-4 font-semibold text-slate-950 transition hover:-translate-y-1"
+                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-semibold text-slate-950 shadow-sm transition-all duration-200 hover:bg-slate-50 hover:shadow"
               >
                 Get a Quote
-                <ArrowRight size={18} />
+                <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
               </Link>
 
               <Link
                 href="/contact"
-                className="rounded-2xl border border-white/20 px-8 py-4 font-semibold text-white transition hover:bg-white/10"
+                className="inline-flex items-center justify-center rounded-xl border border-slate-800 bg-slate-900/50 px-6 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:border-slate-700 hover:bg-slate-900"
               >
                 Contact Us
               </Link>
@@ -127,48 +105,43 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* WHO WE ARE */}
-
-      <section className="py-24 lg:py-32">
+      {/* CORPORATE PROFILE */}
+      <section className="py-24 sm:py-32">
         <Container>
-          <div className="grid gap-20 lg:grid-cols-2 lg:items-center">
-            <div>
-              <span className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">
+          <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
+            <div className="lg:col-span-7">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600">
                 Who We Are
               </span>
 
-              <h2 className="mt-4 text-4xl font-bold text-slate-900 lg:text-5xl">
-                Protecting Futures Through Trust & Excellence
+              <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+                Mitigating Risk Through Trust & Operational Excellence
               </h2>
 
-              <div className="mt-8 space-y-6 text-lg leading-relaxed text-slate-600">
+              <div className="mt-6 space-y-6 text-base leading-relaxed text-slate-600 sm:text-lg">
                 <p>
-                  Koryom Insurance Company Limited was officially registered on
-                  28 February 2020 and has grown into a trusted provider of
-                  comprehensive insurance solutions.
+                  Established as an incorporated enterprise on{" "}
+                  <strong className="font-semibold text-slate-900">February 28, 2020</strong>, 
+                  Koryom Insurance Company Limited has systematically scale-optimized its structural layout to stand as a definitive anchor for corporate risk advisory and complete insurance distribution models.
                 </p>
 
                 <p>
-                  We provide a wide range of general and life insurance products
-                  tailored to the evolving needs of individuals, families,
-                  institutions, and businesses.
+                  We align an expanding catalog of general risk protection matrixes with tailored life structures to guard against asset depreciation, volatile liabilities, and unforeseen disruptions affecting local families, NGOs, and commerce.
                 </p>
 
                 <p>
-                  At Koryom, we do more than sell policies. We provide peace of
-                  mind. Our experienced team works closely with clients to
-                  identify risks, develop practical protection strategies, and
-                  deliver responsive support when it matters most.
+                  Rather than distributing static policies, Koryom integrates dynamic client consultations to pinpoint environmental and operational exposures. Our specialized risk specialists build clean protection portfolios coupled with responsive claim verification architecture.
                 </p>
               </div>
             </div>
 
-            <div className="relative">
-              <div className="aspect-[4/5] overflow-hidden rounded-[40px] bg-slate-100">
+            <div className="lg:col-span-5">
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl bg-slate-100 shadow-xl ring-1 ring-slate-900/5">
                 <Image
-                  src="/images/about/about-company.jpg"
-                  alt="Koryom Insurance"
+                  src="/images/marin.png"
+                  alt="Koryom Corporate Operations"
                   fill
+                  priority
                   className="object-cover"
                 />
               </div>
@@ -177,63 +150,55 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* MISSION + VISION */}
-
-      <section className="bg-slate-50 py-24">
+      {/* CORE STRATEGY */}
+      <section className="bg-slate-50 py-24 sm:py-32 border-y border-slate-100">
         <Container>
-          <div className="grid gap-8 lg:grid-cols-2">
-            <div className="rounded-[32px] bg-white p-10 shadow-sm">
-              <Award className="mb-6 text-blue-600" size={36} />
-
-              <h3 className="text-3xl font-bold text-slate-900">Vision</h3>
-
-              <p className="mt-6 text-lg leading-relaxed text-slate-600">
-                To be the most trusted insurance partner, providing innovative,
-                accessible, and dependable protection solutions that empower
-                communities and businesses to thrive confidently.
+          <div className="grid gap-8 md:grid-cols-2">
+            <div className="relative rounded-2xl border border-slate-200/60 bg-white p-8 shadow-sm transition-shadow duration-300 hover:shadow-md">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                <Award size={24} />
+              </div>
+              <h3 className="mt-6 text-xl font-bold text-slate-900">Vision</h3>
+              <p className="mt-4 text-base leading-relaxed text-slate-600">
+                To stand as the absolute benchmark of financial trust and accessible protection across regional structures, empowering businesses and civic societies to cultivate capital and legacy confidently.
               </p>
             </div>
 
-            <div className="rounded-[32px] bg-slate-950 p-10 text-white">
-              <Shield className="mb-6 text-cyan-400" size={36} />
-
-              <h3 className="text-3xl font-bold">Mission</h3>
-
-              <p className="mt-6 text-lg leading-relaxed text-slate-300">
-                To deliver comprehensive insurance products, professional risk
-                advisory services, and responsive claims support that protect
-                our clients against uncertainty.
+            <div className="relative rounded-2xl bg-slate-950 p-8 shadow-xl">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-900 text-cyan-400 ring-1 ring-white/10">
+                <Shield size={24} />
+              </div>
+              <h3 className="mt-6 text-xl font-bold text-white">Mission</h3>
+              <p className="mt-4 text-base leading-relaxed text-slate-300">
+                To design bulletproof indemnity systems, maintain high-standard actuarial governance, and administer predictive risk engineering framework solutions that immunize client assets against localized and macro uncertainties.
               </p>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* VALUES */}
-
-      <section className="py-24">
+      {/* STRATEGIC VALUES */}
+      <section className="py-24 sm:py-32">
         <Container>
-          <div className="text-center">
-            <span className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">
-              Our Values
+          <div className="max-w-2xl">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600">
+              Our Culture
             </span>
-
-            <h2 className="mt-4 text-4xl font-bold text-slate-900">
-              Principles That Guide Every Decision
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+              Principles That Govern Our Underwriting
             </h2>
           </div>
 
-          <div className="mt-16 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((value) => (
               <div
                 key={value.title}
-                className="rounded-[28px] border border-slate-200 p-8 transition hover:-translate-y-2 hover:shadow-xl"
+                className="group relative rounded-2xl border border-slate-200/80 p-6 transition-all duration-200 hover:-translate-y-1 hover:border-slate-300 hover:shadow-md"
               >
-                <h3 className="text-xl font-bold text-slate-900">
+                <h3 className="text-lg font-bold text-slate-900 transition-colors duration-200 group-hover:text-blue-600">
                   {value.title}
                 </h3>
-
-                <p className="mt-4 leading-relaxed text-slate-600">
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">
                   {value.description}
                 </p>
               </div>
@@ -242,36 +207,30 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* WHY CHOOSE US */}
-
-      <section className="bg-slate-950 py-24 text-white">
+      {/* WHY KORYOM */}
+      <section className="bg-slate-950 py-24 sm:py-32 text-white">
         <Container>
-          <div className="grid gap-20 lg:grid-cols-2">
-            <div>
-              <span className="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-400">
-                Why Choose Us
+          <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
+            <div className="lg:col-span-5 lg:sticky lg:top-8">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">
+                Why Partner With Us
               </span>
-
-              <h2 className="mt-4 text-4xl font-bold">
-                Service With Excellence
+              <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+                Engineered Performance, Professional Service
               </h2>
-
-              <p className="mt-6 text-lg leading-relaxed text-slate-300">
-                We go beyond the fine print to ensure every interaction is
-                handled with professionalism, attention to detail, and genuine
-                commitment to client success.
+              <p className="mt-4 text-base leading-relaxed text-slate-400">
+                We design past superficial contract definitions to guarantee that fiscal exposures are structured with precise attention to detail, proactive compliance, and absolute fiduciary alignment.
               </p>
             </div>
 
-            <div className="space-y-5">
-              {reasons.map((item) => (
+            <div className="space-y-4 lg:col-span-7">
+              {reasons.map((item, index) => (
                 <div
-                  key={item}
-                  className="flex gap-4 rounded-2xl border border-white/10 bg-white/5 p-5"
+                  key={index}
+                  className="flex gap-4 rounded-xl border border-slate-900 bg-slate-900/40 p-5 backdrop-blur-sm transition-colors duration-200 hover:border-slate-800"
                 >
-                  <CheckCircle2 className="mt-1 text-cyan-400" size={20} />
-
-                  <p className="text-slate-200">{item}</p>
+                  <CheckCircle2 className="mt-0.5 shrink-0 text-cyan-400" size={18} />
+                  <p className="text-sm font-medium text-slate-300">{item}</p>
                 </div>
               ))}
             </div>
@@ -279,35 +238,30 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* PRODUCTS */}
-
-      <section className="py-24">
+      {/* INSURANCE SOLUTIONS MATRIX */}
+      <section className="py-24 sm:py-32">
         <Container>
           <div className="text-center">
-            <span className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">
-              Our Expertise
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600">
+              Core Frameworks
             </span>
-
-            <h2 className="mt-4 text-4xl font-bold text-slate-900">
-              Comprehensive Insurance Solutions
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+              Comprehensive Capital & Asset Indemnity
             </h2>
           </div>
 
-          <div className="mt-16 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {products.map((product) => {
               const Icon = product.icon;
-
               return (
                 <div
                   key={product.title}
-                  className="group rounded-[28px] border border-slate-200 p-8 transition hover:-translate-y-2 hover:border-blue-200 hover:shadow-xl"
+                  className="group flex items-center gap-5 rounded-2xl border border-slate-200/70 p-6 transition-all duration-200 hover:border-blue-200 hover:bg-slate-50/50 hover:shadow-sm"
                 >
-                  <Icon
-                    size={34}
-                    className="text-blue-600 transition group-hover:scale-110"
-                  />
-
-                  <h3 className="mt-6 text-xl font-bold text-slate-900">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 transition-transform duration-200 group-hover:scale-105">
+                    <Icon size={22} />
+                  </div>
+                  <h3 className="text-base font-bold text-slate-900">
                     {product.title}
                   </h3>
                 </div>
@@ -317,62 +271,67 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* STATS */}
-
-      <section className="bg-slate-50 py-24">
+      {/* PERFORMANCE METRICS */}
+      <section className="bg-slate-50 py-20 border-t border-slate-200/60">
         <Container>
-          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-8 grid-cols-2 lg:grid-cols-4">
             <div className="text-center">
-              <Clock3 className="mx-auto text-blue-600" size={34} />
-              <h3 className="mt-4 text-5xl font-bold text-slate-900">2020</h3>
-              <p className="mt-2 text-slate-600">Established</p>
+              <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+                <Clock3 size={20} />
+              </div>
+              <h3 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">2020</h3>
+              <p className="mt-1 text-xs font-medium uppercase tracking-wider text-slate-500">Incorporated</p>
             </div>
 
             <div className="text-center">
-              <Shield className="mx-auto text-blue-600" size={34} />
-              <h3 className="mt-4 text-5xl font-bold text-slate-900">15+</h3>
-              <p className="mt-2 text-slate-600">Insurance Products</p>
+              <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+                <Shield size={20} />
+              </div>
+              <h3 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">15+</h3>
+              <p className="mt-1 text-xs font-medium uppercase tracking-wider text-slate-500">Product Matrixes</p>
             </div>
 
             <div className="text-center">
-              <Users className="mx-auto text-blue-600" size={34} />
-              <h3 className="mt-4 text-5xl font-bold text-slate-900">100%</h3>
-              <p className="mt-2 text-slate-600">Client Focused</p>
+              <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+                <Users size={20} />
+              </div>
+              <h3 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">100%</h3>
+              <p className="mt-1 text-xs font-medium uppercase tracking-wider text-slate-500">Client Centric</p>
             </div>
 
             <div className="text-center">
-              <Award className="mx-auto text-blue-600" size={34} />
-              <h3 className="mt-4 text-5xl font-bold text-slate-900">24/7</h3>
-              <p className="mt-2 text-slate-600">Support & Guidance</p>
+              <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+                <Award size={20} />
+              </div>
+              <h3 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">24/7</h3>
+              <p className="mt-1 text-xs font-medium uppercase tracking-wider text-slate-500">Advisory Pipeline</p>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* CTA */}
-
-      <section className="relative overflow-hidden py-24">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-950 via-blue-900 to-cyan-800" />
-
-        <Container>
-          <div className="relative rounded-[40px] border border-white/10 bg-white/10 p-12 text-center backdrop-blur-xl lg:p-20">
-            <h2 className="mx-auto max-w-4xl text-4xl font-bold text-white lg:text-6xl">
+      {/* CALL TO ACTION */}
+      <section className="relative overflow-hidden py-24 sm:py-32">
+        <div className="absolute inset-0 bg-slate-950" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,_var(--tw-gradient-stops))] from-blue-950 via-slate-950 to-cyan-950 opacity-90" />
+        
+        <Container className="relative z-10">
+          <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-8 text-center backdrop-blur-xl sm:p-16 lg:p-20">
+            <h2 className="mx-auto max-w-3xl text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
               Ready to Protect What Matters Most?
             </h2>
 
-            <p className="mx-auto mt-6 max-w-3xl text-lg text-blue-100">
-              Partner with Koryom Insurance and gain the confidence that comes
-              from comprehensive protection, professional support, and trusted
-              expertise.
+            <p className="mx-auto mt-6 max-w-2xl text-base text-slate-400 sm:text-lg">
+              Partner with Koryom Insurance Company Limited and insulate your corporate or personal trajectory with tailored, institutional-grade risk coverage.
             </p>
 
             <div className="mt-10">
               <Link
                 href="/quote"
-                className="inline-flex items-center gap-2 rounded-2xl bg-white px-8 py-4 font-semibold text-slate-950 transition hover:-translate-y-1"
+                className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-semibold text-slate-950 shadow-sm transition-transform duration-200 hover:-translate-y-0.5 hover:bg-slate-50"
               >
                 Get a Quote
-                <ArrowRight size={18} />
+                <ArrowRight size={16} />
               </Link>
             </div>
           </div>

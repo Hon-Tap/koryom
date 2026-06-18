@@ -9,8 +9,9 @@ import {
   PlaneTakeoff,
   Coins,
   ArrowRight,
+  ArrowUpRight,
   ShieldCheck,
-  ArrowUpRight
+  Sparkles,
 } from "lucide-react";
 
 import Container from "../ui/container";
@@ -18,99 +19,110 @@ import Container from "../ui/container";
 const portfolios = [
   {
     icon: Car,
-    title: "Comprehensive & Third-Party Motor",
+    title: "Motor Insurance",
     description:
-      "Enterprise fleet optimization and executive vehicle protection programs engineered against regional operational hazards.",
-    badge: "Asset Protection",
+      "Comprehensive and third-party protection for private vehicles, executive fleets, transport operators, and corporate mobility assets.",
+    badge: "Mobility",
   },
   {
     icon: Truck,
-    title: "Goods in Transit Logistics",
+    title: "Goods in Transit",
     description:
-      "Securing commercial freight corridors, supply chains, and high-value cargo distribution across all key economic networks.",
-    badge: "Supply Chain",
+      "End-to-end cargo protection for supply chains, logistics operators, distributors, importers, and commercial freight movement.",
+    badge: "Logistics",
   },
   {
     icon: PlaneTakeoff,
-    title: "Umbrella Travel Insurance",
+    title: "Travel Insurance",
     description:
-      "Global institutional travel risk management and medical evacuation infrastructure for corporate executives and teams.",
-    badge: "Global Risk",
+      "International travel protection covering medical emergencies, trip disruptions, evacuations, and business travel risks.",
+    badge: "Global Cover",
   },
   {
     icon: Coins,
-    title: "Money & Specie Infrastructure",
+    title: "Money Insurance",
     description:
-      "High-security coverage models protecting cash-in-transit, bank vaults, liquid assets, and financial institution liabilities.",
-    badge: "Capital Security",
+      "Specialized coverage for cash-in-transit, vault storage, financial institutions, and high-value monetary assets.",
+    badge: "Financial Risk",
   },
 ];
 
 const capabilities = [
-  "Institutional Capacity & High Capital Retention",
-  "Custom Corporate Risk Underwriting Models",
-  "Expedited Claims Liquidation Engine",
-  "Regulatory Compliance Infrastructure",
+  "Tailored Corporate Risk Solutions",
+  "Fast & Transparent Claims Processing",
+  "Strong Financial Protection Capacity",
+  "Regulatory Compliance & Governance",
 ];
 
 const commercialGallery = [
   {
     src: "/images/umb.png",
-    alt: "Premium commercial fleet logistics and comprehensive motor asset protection",
-    span: "col-span-2 aspect-[21/9]"
+    alt: "Commercial insurance solutions",
+    span: "col-span-2 aspect-[21/10]",
   },
   {
     src: "/images/cargo.png",
-    alt: "Cargo transit and logistics insurance line",
-    span: "col-span-1 aspect-square"
+    alt: "Cargo insurance",
+    span: "col-span-1 aspect-square",
   },
   {
     src: "/images/money.png",
-    alt: "Secure financial capital and money-in-transit underwriting",
-    span: "col-span-1 aspect-square"
-  }
+    alt: "Money insurance",
+    span: "col-span-1 aspect-square",
+  },
 ];
 
 export default function WhoWeServeSection() {
   return (
-    <section className="relative overflow-hidden bg-[#fafafa] py-24 lg:py-36 text-slate-900">
-      
-      {/* Decorative Structural Lines */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden select-none opacity-40">
-        <div className="absolute top-0 right-1/4 h-full w-[1px] bg-gradient-to-b from-slate-200 via-transparent to-transparent" />
+    <section className="relative overflow-hidden bg-slate-50 py-24 lg:py-32">
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute left-0 top-0 h-[500px] w-[500px] rounded-full bg-blue-100/60 blur-3xl" />
+        <div className="absolute right-0 bottom-0 h-[450px] w-[450px] rounded-full bg-slate-200/50 blur-3xl" />
+
+        <div className="absolute inset-y-0 left-[12%] hidden w-px bg-gradient-to-b from-transparent via-slate-200 to-transparent lg:block" />
+        <div className="absolute inset-y-0 right-[12%] hidden w-px bg-gradient-to-b from-transparent via-slate-200 to-transparent lg:block" />
       </div>
 
-      <Container>
-        <div className="grid items-center gap-16 lg:grid-cols-[1fr_1.1fr] lg:gap-12 xl:gap-20">
-          
-          {/* Left Column: Corporate Value Proposition */}
-          <div>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-blue-100 bg-blue-50/60 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-blue-700">
-              <ShieldCheck className="h-3.5 w-3.5 text-blue-600" />
-              Institutional Portfolios
-            </span>
+      <Container className="relative z-10">
+        <div className="grid items-center gap-16 lg:grid-cols-[1fr_1.05fr] xl:gap-20">
+          {/* Content */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-blue-700 shadow-sm">
+              <ShieldCheck className="h-4 w-4" />
+              Commercial Protection
+            </div>
 
-            <h2 className="mt-6 text-4xl font-black tracking-tight text-slate-900 md:text-5xl lg:text-5xl xl:text-6xl leading-[1.1]">
-              Securing Commerce <br />
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                & Capital Infrastructure
+            <h2 className="mt-6 text-4xl font-black leading-tight tracking-tight text-slate-900 md:text-5xl xl:text-6xl">
+              Protecting Businesses,
+              <span className="block bg-gradient-to-r from-blue-700 via-blue-600 to-cyan-600 bg-clip-text text-transparent">
+                Capital & Operations
               </span>
             </h2>
 
-            <p className="mt-6 text-base leading-relaxed text-slate-600 sm:text-lg max-w-xl font-normal">
-              Koryom shifts insurance from a reactive policy to corporate stability infrastructure. We underwrite the core operations driving South Sudan's commercial development.
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
+              Koryom Insurance delivers dependable protection for businesses,
+              institutions, logistics networks, financial assets, and everyday
+              operations. Our solutions help organizations operate with
+              confidence in an evolving risk environment.
             </p>
 
-            {/* Premium Linear Checkmarks */}
-            <div className="mt-8 space-y-4">
+            <div className="mt-10 space-y-4">
               {capabilities.map((item) => (
-                <div key={item} className="flex items-start gap-3.5">
-                  <div className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-blue-50 text-blue-600 border border-blue-100">
-                    <div className="h-1.5 w-1.5 rounded-full bg-blue-600" />
+                <div
+                  key={item}
+                  className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
+                >
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-700">
+                    <Sparkles className="h-4 w-4" />
                   </div>
-                  <span className="font-semibold text-slate-700 text-sm sm:text-base">
-                    {item}
-                  </span>
+
+                  <span className="font-semibold text-slate-700">{item}</span>
                 </div>
               ))}
             </div>
@@ -118,80 +130,114 @@ export default function WhoWeServeSection() {
             <div className="mt-10">
               <Link
                 href="/about"
-                className="group inline-flex items-center gap-2.5 rounded-xl bg-slate-900 px-7 py-4 text-sm font-bold text-white shadow-xl shadow-slate-900/10 transition-all duration-300 hover:-translate-y-0.5 hover:bg-slate-800"
+                className="group inline-flex items-center gap-2 rounded-2xl bg-slate-900 px-7 py-4 text-sm font-bold text-white shadow-xl transition-all duration-300 hover:-translate-y-1 hover:bg-slate-800"
               >
-                Corporate Capabilities
-                <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+                Explore Our Expertise
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Right Column: Premium High-Intent Commercial Grid Matrix */}
+          {/* Gallery */}
           <div className="grid grid-cols-2 gap-4">
-            {commercialGallery.map((img, index) => (
+            {commercialGallery.map((image, index) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
+                key={image.src}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-md group ${img.span}`}
+                transition={{
+                  duration: 0.7,
+                  delay: index * 0.1,
+                }}
+                className={`group relative overflow-hidden rounded-[28px] border border-white bg-white shadow-xl ${image.span}`}
               >
                 <Image
-                  src={img.src}
-                  alt={img.alt}
+                  src={image.src}
+                  alt={image.alt}
                   fill
-                  className="object-cover transition-transform duration-700 hover:scale-103 brightness-[0.93]"
+                  className="object-cover transition-all duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent opacity-60" />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/55 via-slate-950/10 to-transparent" />
+
+                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-950/50 to-transparent" />
               </motion.div>
             ))}
           </div>
-
         </div>
 
-        {/* Bottom Area: Asymmetrical Re-engineered Portfolio Cards */}
-        <div className="mt-24 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {portfolios.map((item, index) => {
-            const Icon = item.icon;
+        {/* Portfolio Cards */}
+        {/* <div className="mt-24 lg:mt-32">
+          <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-[0.25em] text-blue-700">
+                Insurance Solutions
+              </span>
 
-            return (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
-                className="group relative flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-xl"
-              >
-                <div>
-                  {/* Card Header Label Area */}
-                  <div className="flex items-center justify-between">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-50 text-slate-800 border border-slate-100 transition-all duration-300 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600">
-                      <Icon size={20} />
-                    </div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 bg-slate-50 px-2.5 py-1 rounded-md border border-slate-100">
-                      {item.badge}
-                    </span>
+              <h3 className="mt-3 text-3xl font-black text-slate-900 md:text-4xl">
+                Built Around Real Business Needs
+              </h3>
+            </div>
+
+            <p className="max-w-lg text-slate-600">
+              Industry-focused insurance products designed to strengthen
+              resilience, reduce uncertainty, and protect what matters most.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {portfolios.map((item, index) => {
+              const Icon = item.icon;
+
+              return (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.6,
+                    delay: index * 0.08,
+                  }}
+                  className="group relative overflow-hidden rounded-[28px] border border-slate-200 bg-white p-7 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-blue-100 hover:shadow-2xl"
+                >
+                  <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-transparent to-cyan-50" />
                   </div>
 
-                  <h3 className="mt-6 text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors duration-300">
-                    {item.title}
-                  </h3>
+                  <div className="relative">
+                    <div className="flex items-center justify-between">
+                      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-100 text-slate-900 transition-all duration-300 group-hover:bg-blue-700 group-hover:text-white">
+                        <Icon className="h-6 w-6" />
+                      </div>
 
-                  <p className="mt-3 text-sm leading-relaxed text-slate-500 font-normal">
-                    {item.description}
-                  </p>
-                </div>
+                      <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-slate-500">
+                        {item.badge}
+                      </span>
+                    </div>
 
-                <div className="mt-6 pt-4 border-t border-slate-50 flex items-center justify-between text-xs font-bold text-slate-400 group-hover:text-blue-600 transition-colors duration-300">
-                  <span>Analyze Matrix</span>
-                  <ArrowUpRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
+                    <h4 className="mt-7 text-xl font-bold leading-snug text-slate-900 transition-colors duration-300 group-hover:text-blue-700">
+                      {item.title}
+                    </h4>
+
+                    <p className="mt-4 text-sm leading-relaxed text-slate-600">
+                      {item.description}
+                    </p>
+
+                    <div className="mt-8 flex items-center justify-between border-t border-slate-100 pt-5">
+                      <span className="text-sm font-semibold text-slate-500 transition-colors duration-300 group-hover:text-blue-700">
+                        Learn More
+                      </span>
+
+                      <ArrowUpRight className="h-4 w-4 text-slate-400 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-blue-700" />
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div> */}
       </Container>
     </section>
   );

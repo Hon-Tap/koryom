@@ -1,5 +1,6 @@
-// app/claims/page.tsx
+"use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -19,34 +20,36 @@ import {
   Briefcase,
   Shield,
   HelpCircle,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 
 import Container from "@/components/ui/container";
 
-const process = [
+const processSteps = [
   {
     icon: FileText,
     title: "Notify Us",
     description:
-      "Report the incident immediately and provide basic information about the loss or damage.",
+      "Initiate your request immediately by providing the fundamental details of the loss or incident.",
   },
   {
     icon: Upload,
     title: "Submit Documents",
     description:
-      "Provide supporting documentation such as reports, photographs, invoices and policy details.",
+      "Upload corresponding receipts, photos, and validation reports directly to our secure clearing team.",
   },
   {
     icon: Search,
     title: "Assessment",
     description:
-      "Our claims specialists carefully review and verify all submitted information.",
+      "Our specialized underwriters and assessors examine the case parameters objectively and rapidly.",
   },
   {
     icon: CheckCircle2,
     title: "Settlement",
     description:
-      "Approved claims are processed promptly in accordance with your policy terms.",
+      "Approved claims are disbursed swiftly in total accordance with your policy structure.",
   },
 ];
 
@@ -55,117 +58,120 @@ const claimTypes = [
     icon: HeartPulse,
     title: "Medical Claims",
     description:
-      "In-patient, out-patient, medical schemes and healthcare related claims.",
+      "In-patient diagnostics, out-patient clinic schedules, and tailored corporate medical schemes.",
   },
   {
     icon: Car,
     title: "Motor Claims",
     description:
-      "Comprehensive and third-party motor vehicle insurance claims.",
+      "Direct mitigation covering comprehensive private transit and third-party commercial vehicles.",
   },
   {
     icon: Building2,
     title: "Property Claims",
     description:
-      "Fire, burglary, domestic package and property damage claims.",
+      "Indemnity guarding against structural fire, active burglary, and domestic package damages.",
   },
   {
     icon: Ship,
     title: "Marine Claims",
     description:
-      "Marine transit, goods in transit and cargo protection claims.",
+      "Strategic protection matrices covering cargo shipments, open sea transit, and logistics.",
   },
   {
     icon: Briefcase,
     title: "Business Claims",
     description:
-      "Cash in transit, fidelity guarantee and liability related claims.",
+      "Comprehensive liability, cash-in-transit protection, and fidelity guarantee structures.",
   },
   {
     icon: Shield,
     title: "Life Claims",
     description:
-      "Group life, last expense and credit life insurance claims.",
+      "Group life parameters, secure credit life setups, and rapid-disbursal last expense clauses.",
   },
 ];
 
 const documents = [
-  "Completed claim notification form",
-  "Copy of policy schedule",
-  "National identification document",
-  "Police report (where applicable)",
-  "Photographic evidence",
-  "Medical reports and invoices",
-  "Repair quotations or assessments",
-  "Any additional supporting documentation",
+  "Completed and signed Koryom claim notification form",
+  "Copy of active, validated policy schedule",
+  "Official national identification documents",
+  "Verifiable Police Abstract or incident report (where applicable)",
+  "Dated photographic proof of property or vehicle damage",
+  "Itemized medical bills, prescriptions, and official hospital receipts",
+  "Professional third-party repair estimates and evaluations",
+  "Fiduciary supporting statements requested by underwriting staff",
 ];
 
-const faqs = [
+const faqsData = [
   {
     question: "How soon should I report a claim?",
     answer:
-      "Claims should be reported immediately after an incident occurs to allow prompt assessment and support.",
+      "All claims should ideally be reported immediately or within 24–48 hours of the incident. Prompt notification ensures our forensic assessment teams can gather clear parameters, leading to a much faster settlement pipeline.",
   },
   {
-    question: "What documents are required?",
+    question: "What primary documents are mandatory?",
     answer:
-      "Required documents vary by claim type but generally include policy details, identification, reports and evidence of loss.",
+      "While specific documentation varies based on exposure class (e.g., medical vs. motor), you will universally need a completed Claim Form, your active Policy Schedule, a Government-issued ID, and official verification (such as medical invoices, police reports, or damage photographs).",
   },
   {
-    question: "How long does settlement take?",
+    question: "How long does the assessment and settlement process take?",
     answer:
-      "Settlement timelines depend on the complexity of the claim and the completeness of submitted documentation.",
+      "Our target is always minimal disruption. For straightforward claims with completely submitted documentation, processing can be completed within a few business days. Complex structural or marine exposures may require more thorough, collaborative assessments.",
   },
   {
-    question: "Can businesses submit large claims?",
+    question: "Can corporate entities submit high-exposure claims?",
     answer:
-      "Yes. Our team handles both personal and corporate claims across multiple insurance categories.",
+      "Yes. Koryom Insurance Company Limited is structurally and financially built to handle high-capacity enterprise claims. Our risk engineers work directly with corporate managers to evaluate multi-layered exposures.",
   },
 ];
 
 export default function ClaimsPage() {
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+
+  const toggleFaq = (index: number) => {
+    setOpenFaqIndex(openFaqIndex === index ? null : index);
+  };
+
   return (
-    <main className="bg-white">
-      {/* HERO */}
+    <main className="bg-white antialiased selection:bg-blue-500 selection:text-white">
+      {/* HERO SECTION */}
+      <section className="relative overflow-hidden bg-slate-950 py-32 sm:py-40 lg:py-48">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-900/40 via-slate-950 to-slate-950" />
+          <div className="absolute left-1/4 top-0 h-[600px] w-[600px] rounded-full bg-cyan-500/10 blur-[120px]" />
+          <div className="absolute bottom-0 right-1/4 h-[600px] w-[600px] rounded-full bg-blue-600/10 blur-[120px]" />
+        </div>
 
-      <section className="relative overflow-hidden bg-slate-950 py-32 lg:py-40">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-blue-950 to-cyan-900" />
-
-        <div className="absolute left-0 top-0 h-[500px] w-[500px] rounded-full bg-cyan-500/10 blur-3xl" />
-        <div className="absolute bottom-0 right-0 h-[500px] w-[500px] rounded-full bg-blue-500/10 blur-3xl" />
-
-        <Container>
-          <div className="relative z-10 mx-auto max-w-5xl text-center">
-            <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-blue-100 backdrop-blur-md">
+        <Container className="relative z-10">
+          <div className="mx-auto max-w-4xl text-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-cyan-300 backdrop-blur-md">
               Claims Support Center
             </span>
 
-            <h1 className="mt-8 text-5xl font-bold text-white md:text-7xl">
-              Fast, Fair &
-              <span className="block text-cyan-300">
-                Transparent Claims
+            <h1 className="mt-8 text-4xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl">
+              Fast, Fair &{" "}
+              <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent">
+                Transparent Claims.
               </span>
             </h1>
 
-            <p className="mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-slate-300">
-              At Koryom Insurance, a claim is more than a process. It is a
-              promise. Our dedicated team works quickly and professionally to
-              help you recover, rebuild and move forward with confidence when
-              unexpected events occur.
+            <p className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-slate-400 sm:text-lg md:text-xl">
+              At Koryom, a claim is not an administrative delay—it is our primary promise kept. Our experienced adjusters operate with transparency and speed to resolve exposures, keeping your journey moving.
             </p>
 
-            <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-8 py-4 font-semibold text-slate-950 transition-all duration-300 hover:-translate-y-1"
+            <div className="mt-12 flex flex-col justify-center gap-4 sm:flex-row sm:items-center">
+              <a
+                href="#report-now"
+                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-semibold text-slate-950 shadow-sm transition-all duration-200 hover:bg-slate-50 hover:shadow"
               >
                 Report a Claim
-                <ArrowRight size={18} />
-              </Link>
+                <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+              </a>
 
               <Link
                 href="/products"
-                className="rounded-2xl border border-white/20 px-8 py-4 font-semibold text-white transition-all duration-300 hover:bg-white/10"
+                className="inline-flex items-center justify-center rounded-xl border border-slate-800 bg-slate-900/50 px-6 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:border-slate-700 hover:bg-slate-900"
               >
                 View Coverage
               </Link>
@@ -174,41 +180,38 @@ export default function ClaimsPage() {
         </Container>
       </section>
 
-      {/* CLAIMS PROMISE */}
-
-      <section className="py-24">
+      {/* THREE PILLARS PROMISE */}
+      <section className="relative -mt-16 z-20">
         <Container>
-          <div className="rounded-[40px] bg-gradient-to-r from-blue-700 via-blue-600 to-cyan-500 p-10 text-white shadow-2xl lg:p-16">
-            <div className="grid gap-10 lg:grid-cols-3">
-              <div>
-                <Clock3 size={38} />
-                <h3 className="mt-5 text-2xl font-bold">
-                  Rapid Response
-                </h3>
-                <p className="mt-3 text-blue-100">
-                  We respond quickly and guide you through every stage of the
-                  claims process.
+          <div className="rounded-3xl border border-slate-200/50 bg-white p-8 shadow-xl md:p-12 lg:p-16">
+            <div className="grid gap-12 md:grid-cols-3 md:divide-x md:divide-slate-100">
+              <div className="flex flex-col items-start text-left md:px-4 first:pl-0">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                  <Clock3 size={24} />
+                </div>
+                <h3 className="mt-6 text-xl font-bold text-slate-900">Rapid Response</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                  Our claims triage team answers queries rapidly, setting clear expectations from the first minute of your notification.
                 </p>
               </div>
 
-              <div>
-                <ShieldCheck size={38} />
-                <h3 className="mt-5 text-2xl font-bold">
-                  Fair Assessment
-                </h3>
-                <p className="mt-3 text-blue-100">
-                  Every claim is reviewed professionally and transparently.
+              <div className="flex flex-col items-start text-left md:px-8">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                  <ShieldCheck size={24} />
+                </div>
+                <h3 className="mt-6 text-xl font-bold text-slate-900">Fair Assessment</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                  Every claim parameter is reviewed objectively by credentialed underwriters against simple, transparent contract terms.
                 </p>
               </div>
 
-              <div>
-                <CheckCircle2 size={38} />
-                <h3 className="mt-5 text-2xl font-bold">
-                  Reliable Settlement
-                </h3>
-                <p className="mt-3 text-blue-100">
-                  Efficient settlement designed to minimize disruption and help
-                  you recover faster.
+              <div className="flex flex-col items-start text-left md:px-8 last:pr-0">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                  <CheckCircle2 size={24} />
+                </div>
+                <h3 className="mt-6 text-xl font-bold text-slate-900">Reliable Settlement</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                  Disbursals are expedited seamlessly through verified channels, ensuring you rebuild, recover, and resume securely.
                 </p>
               </div>
             </div>
@@ -216,42 +219,42 @@ export default function ClaimsPage() {
         </Container>
       </section>
 
-      {/* PROCESS */}
-
-      <section className="bg-slate-50 py-24">
+      {/* PROCESS TIMELINE */}
+      <section className="py-24 sm:py-32 bg-slate-50/50">
         <Container>
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">
-              Claims Process
+          <div className="text-center max-w-3xl mx-auto">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600">
+              Operational Pathway
             </span>
-
-            <h2 className="mt-4 text-4xl font-bold text-slate-900 lg:text-5xl">
-              Simple & Stress-Free
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+              Simple, Stress-Free Claims Architecture
             </h2>
+            <p className="mt-4 text-base text-slate-600">
+              We have eliminated administrative friction to design a clear, four-step verification timeline.
+            </p>
           </div>
 
-          <div className="mt-20 grid gap-8 lg:grid-cols-4">
-            {process.map((step, index) => {
+          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {processSteps.map((step, index) => {
               const Icon = step.icon;
-
               return (
                 <div
                   key={step.title}
-                  className="group rounded-[32px] bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+                  className="group relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-slate-300 hover:shadow-md"
                 >
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50">
-                    <Icon className="text-blue-600" />
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600 transition-transform duration-200 group-hover:scale-105">
+                    <Icon size={22} />
                   </div>
 
-                  <div className="mt-6 text-sm font-semibold text-blue-600">
-                    Step {index + 1}
-                  </div>
+                  <span className="absolute top-6 right-6 text-xs font-bold text-slate-300 group-hover:text-blue-200 transition-colors">
+                    0{index + 1}
+                  </span>
 
-                  <h3 className="mt-2 text-xl font-bold text-slate-900">
+                  <h3 className="mt-6 text-lg font-bold text-slate-900">
                     {step.title}
                   </h3>
 
-                  <p className="mt-4 leading-relaxed text-slate-600">
+                  <p className="mt-3 text-sm leading-relaxed text-slate-600">
                     {step.description}
                   </p>
                 </div>
@@ -261,39 +264,36 @@ export default function ClaimsPage() {
         </Container>
       </section>
 
-      {/* CLAIM TYPES */}
-
-      <section className="py-24">
+      {/* CLAIM TYPES MATRIX */}
+      <section className="py-24 sm:py-32">
         <Container>
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">
-              Coverage Areas
+          <div className="max-w-2xl">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600">
+              Operational Competencies
             </span>
-
-            <h2 className="mt-4 text-4xl font-bold text-slate-900 lg:text-5xl">
-              Claims We Handle
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+              Sectors We Actively Indemnify
             </h2>
+            <p className="mt-4 text-base text-slate-600">
+              Our structured claims division maintains specialized desks for diverse asset, medical, and liability lines.
+            </p>
           </div>
 
-          <div className="mt-20 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {claimTypes.map((item) => {
               const Icon = item.icon;
-
               return (
                 <div
                   key={item.title}
-                  className="group rounded-[32px] border border-slate-200 p-8 transition-all duration-300 hover:-translate-y-2 hover:border-blue-200 hover:shadow-xl"
+                  className="group rounded-2xl border border-slate-200/80 p-6 transition-all duration-200 hover:border-slate-300 hover:bg-slate-50/50 hover:shadow-sm"
                 >
-                  <Icon
-                    size={34}
-                    className="text-blue-600 transition duration-300 group-hover:scale-110"
-                  />
-
-                  <h3 className="mt-6 text-xl font-bold text-slate-900">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600 transition-transform duration-200 group-hover:scale-105">
+                    <Icon size={22} />
+                  </div>
+                  <h3 className="mt-6 text-lg font-bold text-slate-900">
                     {item.title}
                   </h3>
-
-                  <p className="mt-4 leading-relaxed text-slate-600">
+                  <p className="mt-3 text-sm leading-relaxed text-slate-600">
                     {item.description}
                   </p>
                 </div>
@@ -303,176 +303,175 @@ export default function ClaimsPage() {
         </Container>
       </section>
 
-      {/* DOCUMENTS */}
-
-      <section className="bg-slate-950 py-24 text-white">
+      {/* DOCUMENTS REQUIRED (DARK INTERCEPT) */}
+      <section className="bg-slate-950 py-24 sm:py-32 text-white">
         <Container>
-          <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
-            <div>
-              <span className="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-400">
+          <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
+            <div className="lg:col-span-5">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">
                 Documentation
               </span>
-
-              <h2 className="mt-4 text-4xl font-bold lg:text-5xl">
-                Required Documents
+              <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+                Preparing Your Submissions
               </h2>
-
-              <p className="mt-6 text-lg text-slate-300">
-                To ensure faster processing, please prepare the following
-                documentation before submitting your claim.
+              <p className="mt-4 text-base leading-relaxed text-slate-400">
+                Having clear evidence accelerates claim resolution. Please gather these primary files before initiating formal claims reporting.
               </p>
             </div>
 
-            <div className="rounded-[32px] border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
-              <div className="space-y-5">
-                {documents.map((item) => (
-                  <div
-                    key={item}
-                    className="flex items-start gap-4"
-                  >
-                    <CheckCircle2
-                      size={20}
-                      className="mt-1 text-cyan-400"
-                    />
-
-                    <span className="text-slate-200">{item}</span>
-                  </div>
-                ))}
+            <div className="lg:col-span-7">
+              <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 sm:p-8 backdrop-blur-sm">
+                <div className="grid gap-4 sm:grid-cols-1">
+                  {documents.map((item, index) => (
+                    <div
+                      key={index}
+                      className="flex items-start gap-4 p-2 transition-colors duration-150 hover:bg-white/[0.02] rounded-lg"
+                    >
+                      <CheckCircle2 className="mt-1 shrink-0 text-cyan-400" size={16} />
+                      <span className="text-sm font-medium text-slate-300 leading-relaxed">
+                        {item}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* SUPPORT */}
-
-      <section className="py-24">
+      {/* SUPPORT & EMERGENCY ASSISTANCE */}
+      <section id="report-now" className="py-24 sm:py-32 scroll-mt-6">
         <Container>
-          <div className="rounded-[40px] border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-10 shadow-xl lg:p-16">
-            <div className="text-center">
-              <span className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">
-                Emergency Assistance
+          <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-8 shadow-xl md:p-16">
+            <div className="text-center max-w-2xl mx-auto">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600">
+                Direct Contact Pipeline
               </span>
-
-              <h2 className="mt-4 text-4xl font-bold text-slate-900">
+              <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
                 Need Immediate Support?
               </h2>
-
-              <p className="mx-auto mt-6 max-w-3xl text-lg text-slate-600">
-                Our team is ready to assist you with claim reporting,
-                documentation guidance and policy support.
+              <p className="mt-4 text-base text-slate-600">
+                Our claims team is fully available to guide you through initial damage evaluations, documentation filing, or direct on-site requirements.
               </p>
             </div>
 
-            <div className="mt-12 grid gap-6 md:grid-cols-3">
-              <div className="rounded-3xl bg-white p-8 text-center shadow-sm">
-                <Phone className="mx-auto text-blue-600" size={32} />
-
-                <h3 className="mt-4 font-bold text-slate-900">
-                  Call Us
-                </h3>
-
-                <p className="mt-2 text-slate-600">
+            <div className="mt-12 grid gap-6 sm:grid-cols-3">
+              <div className="group rounded-2xl border border-slate-200/60 bg-white p-6 text-center transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md">
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                  <Phone size={22} />
+                </div>
+                <h3 className="mt-5 text-base font-bold text-slate-900">Call Directly</h3>
+                <p className="mt-2 text-sm text-slate-600 font-semibold hover:text-blue-600">
                   +211 927 815 160
                 </p>
+                <p className="text-xs text-slate-400 mt-1">Sovereign Juba Line</p>
               </div>
 
-              <div className="rounded-3xl bg-white p-8 text-center shadow-sm">
-                <Mail className="mx-auto text-blue-600" size={32} />
-
-                <h3 className="mt-4 font-bold text-slate-900">
-                  Email Us
-                </h3>
-
-                <p className="mt-2 text-slate-600 break-all">
+              <div className="group rounded-2xl border border-slate-200/60 bg-white p-6 text-center transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md">
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                  <Mail size={22} />
+                </div>
+                <h3 className="mt-5 text-base font-bold text-slate-900">Email Claims Desk</h3>
+                <p className="mt-2 text-sm text-slate-600 font-semibold break-all hover:text-blue-600">
                   Koryominsuranc65@gmail.com
                 </p>
+                <p className="text-xs text-slate-400 mt-1">24 Hour Monitoring</p>
               </div>
 
-              <div className="rounded-3xl bg-white p-8 text-center shadow-sm">
-                <MapPin className="mx-auto text-blue-600" size={32} />
-
-                <h3 className="mt-4 font-bold text-slate-900">
-                  Visit Us
-                </h3>
-
-                <p className="mt-2 text-slate-600">
+              <div className="group rounded-2xl border border-slate-200/60 bg-white p-6 text-center transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md">
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                  <MapPin size={22} />
+                </div>
+                <h3 className="mt-5 text-base font-bold text-slate-900">Visit HQ</h3>
+                <p className="mt-2 text-sm text-slate-600 font-semibold">
                   Buluk National Traffic Police HQs
                 </p>
+                <p className="text-xs text-slate-400 mt-1">Juba, South Sudan</p>
               </div>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* FAQ */}
-
-      <section className="bg-slate-50 py-24">
+      {/* FAQ SECTION (WITH INTERACTIVE ACCORDIONS) */}
+      <section className="bg-slate-50 border-t border-slate-200/60 py-24 sm:py-32">
         <Container>
-          <div className="mx-auto max-w-4xl">
+          <div className="mx-auto max-w-3xl">
             <div className="text-center">
-              <span className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">
-                FAQs
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600">
+                Support Framework
               </span>
-
-              <h2 className="mt-4 text-4xl font-bold text-slate-900">
-                Frequently Asked Questions
+              <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-900">
+                Frequently Asked Inquiries
               </h2>
             </div>
 
-            <div className="mt-16 space-y-6">
-              {faqs.map((faq) => (
-                <div
-                  key={faq.question}
-                  className="rounded-[28px] bg-white p-8 shadow-sm"
-                >
-                  <div className="flex items-start gap-4">
-                    <HelpCircle
-                      size={22}
-                      className="mt-1 text-blue-600"
-                    />
+            <div className="mt-12 space-y-4">
+              {faqsData.map((faq, index) => {
+                const isOpen = openFaqIndex === index;
+                return (
+                  <div
+                    key={index}
+                    className="overflow-hidden rounded-xl border border-slate-200 bg-white transition-all duration-200"
+                  >
+                    <button
+                      onClick={() => toggleFaq(index)}
+                      className="flex w-full items-center justify-between p-6 text-left"
+                    >
+                      <div className="flex items-center gap-4">
+                        <HelpCircle className="shrink-0 text-blue-600" size={18} />
+                        <span className="font-bold text-slate-900 text-base sm:text-lg">
+                          {faq.question}
+                        </span>
+                      </div>
+                      {isOpen ? (
+                        <ChevronUp className="text-slate-400 shrink-0" size={18} />
+                      ) : (
+                        <ChevronDown className="text-slate-400 shrink-0" size={18} />
+                      )}
+                    </button>
 
-                    <div>
-                      <h3 className="text-xl font-bold text-slate-900">
-                        {faq.question}
-                      </h3>
-
-                      <p className="mt-3 leading-relaxed text-slate-600">
+                    <div
+                      className={`transition-all duration-300 ease-in-out ${
+                        isOpen ? "max-h-[300px] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
+                      }`}
+                    >
+                      <div className="border-t border-slate-100 p-6 bg-slate-50 text-sm leading-relaxed text-slate-600">
                         {faq.answer}
-                      </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </Container>
       </section>
 
-      {/* CTA */}
+      {/* ACTION PLAN CTA */}
+      <section className="relative overflow-hidden py-24 sm:py-32">
+        <div className="absolute inset-0 bg-slate-950" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,_var(--tw-gradient-stops))] from-blue-950 via-slate-950 to-cyan-950 opacity-90" />
 
-      <section className="relative overflow-hidden py-24">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-950 via-blue-900 to-cyan-800" />
-
-        <Container>
-          <div className="relative rounded-[40px] border border-white/10 bg-white/10 p-12 text-center backdrop-blur-xl lg:p-20">
-            <h2 className="mx-auto max-w-4xl text-4xl font-bold text-white lg:text-6xl">
-              We're Here When You Need Us Most
+        <Container className="relative z-10">
+          <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-8 text-center backdrop-blur-xl sm:p-16 lg:p-20">
+            <h2 className="mx-auto max-w-3xl text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
+              We Stand Ready to Serve You
             </h2>
 
-            <p className="mx-auto mt-6 max-w-3xl text-lg text-blue-100">
-              Submit your claim today and let our team guide you through a
-              seamless and transparent process.
+            <p className="mx-auto mt-6 max-w-2xl text-base text-slate-400 sm:text-lg">
+              Get in touch with Koryom’s dedicated claim representatives to navigate resolution seamlessly, objectively, and transparently.
             </p>
 
             <div className="mt-10">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-2xl bg-white px-8 py-4 font-semibold text-slate-950 transition-all duration-300 hover:-translate-y-1"
+              <a
+                href="#report-now"
+                className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-semibold text-slate-950 shadow-sm transition-transform duration-200 hover:-translate-y-0.5 hover:bg-slate-50"
               >
-                Start Your Claim
-                <ArrowRight size={18} />
-              </Link>
+                Start Your Claim Setup
+                <ArrowRight size={16} />
+              </a>
             </div>
           </div>
         </Container>
