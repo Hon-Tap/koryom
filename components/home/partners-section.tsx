@@ -1,104 +1,128 @@
 "use client";
 
+import React from "react";
 import { motion } from "framer-motion";
 import {
-  ShieldCheck,
-  BriefcaseBusiness,
-  FileCheck2,
-  Search,
+  ShieldAlert,
+  SearchCheck,
+  FileSignature,
+  Building2,
+  Sparkles,
+  ArrowUpRight,
 } from "lucide-react";
 
 import Container from "@/components/ui/container";
 
+// Enhanced taxonomy matching corporate enterprise risk profile
 const services = [
   {
-    icon: ShieldCheck,
-    title: "Insurance Brokerage",
+    icon: ShieldAlert,
+    title: "Strategic Underwriting",
+    subtitle: "Risk Placement Architecture",
     description:
-      "Helping clients identify and secure suitable insurance solutions for their unique needs.",
+      "Bespoke institutional policy structuring and comprehensive market placement aligned precisely with local regulatory demands and complex regional risks across South Sudan.",
+    accent: "bg-blue-600",
   },
   {
-    icon: Search,
-    title: "Risk Assessment",
+    icon: SearchCheck,
+    title: "Risk Engineering",
+    subtitle: "Vulnerability Assessments",
     description:
-      "Evaluating potential exposures and providing practical recommendations to reduce risk.",
+      "Advanced identification and scientific evaluation of structural, operational, and financial exposures, backed by data-driven operational blueprints to mitigate liability.",
+    accent: "bg-emerald-600",
   },
   {
-    icon: FileCheck2,
-    title: "Claims Support",
+    icon: FileSignature,
+    title: "Claims Execution",
+    subtitle: "Advocacy & Asset Recovery",
     description:
-      "Professional assistance throughout the claims process to ensure a smooth experience.",
+      "Rigorous technical processing, end-to-end adjustment legalities, and prompt advocacy channels designed to fast-track settlement capital and enforce policy compliance.",
+    accent: "bg-rose-600",
   },
   {
-    icon: BriefcaseBusiness,
+    icon: Building2,
     title: "Corporate Advisory",
+    subtitle: "Balance Sheet Security",
     description:
-      "Tailored insurance and risk management guidance for businesses and organizations.",
+      "Board-level risk advisory, continuity strategy consulting, and structural workforce benefit engineering built to maintain macro-stability against unexpected market disruptions.",
+    accent: "bg-slate-900",
   },
 ];
 
 export default function ServicesSection() {
   return (
-    <section className="bg-white py-20 lg:py-28">
-      <Container>
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mx-auto max-w-3xl text-center"
-        >
-          <span className="inline-flex rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-[#2f3e9e]">
-            Our Expertise
-          </span>
-
-          <h2 className="mt-6 text-4xl font-bold tracking-tight text-slate-950 md:text-5xl lg:text-6xl">
-            More Than
-            <span className="block text-[#2f3e9e]">
-              Insurance Policies
-            </span>
+    <section className="relative bg-white py-20 lg:py-24 border-b border-slate-200 overflow-hidden font-sans antialiased">
+      {/* Structural Minimal Elements */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl h-px bg-slate-200" />
+      
+      <Container className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Crisp Header System matching the architectural layout design */}
+        <div className="text-center max-w-2xl mx-auto space-y-3 pb-16">
+          <div className="inline-flex items-center gap-2 bg-slate-50 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-slate-900 border border-slate-200 rounded-none">
+            <Sparkles className="h-3 w-3 text-blue-600" />
+            Core Competencies
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight uppercase">
+            More Than Just Insurance Policies
           </h2>
-
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">
-            We provide professional insurance brokerage, advisory and
-            risk management services that help individuals, businesses
-            and organizations make informed decisions.
+          <div className="w-12 h-1 bg-slate-900 mx-auto my-2 rounded-none" />
+          <p className="text-xs sm:text-sm text-slate-500 max-w-xl mx-auto font-normal leading-relaxed tracking-wide">
+            Koryom Insurance Company Limited bridges corporate vulnerabilities with structural risk mitigation, delivering operational continuity through precision engineering.
           </p>
-        </motion.div>
+        </div>
 
-        {/* Services Grid */}
-        <div className="mt-16 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        {/* Industrial Contiguous Structural Grid Framework */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border border-slate-200 bg-slate-100 gap-px rounded-none overflow-hidden shadow-sm">
           {services.map((service, index) => {
             const Icon = service.icon;
 
             return (
               <motion.div
                 key={service.title}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.08,
-                }}
-                className="group rounded-3xl border border-slate-200 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[#2f3e9e]/20 hover:shadow-lg"
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="group relative bg-white p-6 sm:p-8 flex flex-col justify-between items-start gap-8 transition-colors duration-250 hover:bg-slate-50/50 rounded-none"
               >
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-100 text-[#2f3e9e] transition-all duration-300 group-hover:bg-[#2f3e9e] group-hover:text-white">
-                  <Icon size={24} />
+                {/* Visual Top Highlight Accent Indicator on Hover */}
+                <div className="absolute top-0 inset-x-0 h-1 bg-transparent group-hover:bg-slate-900 transition-colors pointer-events-none" />
+
+                <div className="space-y-6 w-full">
+                  {/* Clean Technical Icon Wrapper Box */}
+                  <div className="inline-flex h-12 w-12 items-center justify-center border border-slate-200 bg-slate-50 text-slate-900 transition-all duration-300 rounded-none group-hover:bg-slate-950 group-hover:text-white group-hover:border-slate-950">
+                    <Icon className="h-5 w-5 shrink-0" />
+                  </div>
+
+                  {/* Service Descriptive Metadata Block */}
+                  <div className="space-y-2">
+                    <span className="block text-[9px] font-bold tracking-widest text-slate-400 uppercase">
+                      {service.subtitle}
+                    </span>
+                    <h3 className="text-base font-black text-slate-900 uppercase tracking-tight">
+                      {service.title}
+                    </h3>
+                    <div className="w-6 h-[2px] bg-slate-200 transition-all group-hover:w-10 group-hover:bg-slate-900" />
+                    <p className="pt-2 text-xs leading-relaxed text-slate-600 font-normal tracking-wide">
+                      {service.description}
+                    </p>
+                  </div>
                 </div>
 
-                <h3 className="mt-6 text-xl font-bold text-slate-900">
-                  {service.title}
-                </h3>
-
-                <p className="mt-3 leading-relaxed text-slate-600">
-                  {service.description}
-                </p>
+                {/* Micro Action Trigger Anchor */}
+                <div className="pt-4 w-full border-t border-slate-100 flex items-center justify-between text-slate-400 group-hover:text-slate-900 transition-colors">
+                  <span className="text-[10px] uppercase font-bold tracking-widest opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0">
+                    Analyze Capabilities
+                  </span>
+                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />
+                </div>
+                
               </motion.div>
             );
           })}
         </div>
+        
       </Container>
     </section>
   );
