@@ -7,8 +7,8 @@ import {
   Phone,
   Mail,
   MapPin,
-  ArrowUpRight,
-  ShieldAlert,
+  ArrowRight,
+  ShieldCheck,
   Check,
 } from "lucide-react";
 
@@ -34,100 +34,147 @@ const TwitterIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const products = [
-  "Motor Insurance",
-  "Medical Insurance",
-  "Property Insurance",
-  "Business Insurance",
-  "Marine Insurance",
-  "Life Insurance",
+const assetProtectionLines = [
+  { label: "Health & Medical Schemes", href: "/products?line=health" },
+  { label: "Motor Fleet Cover", href: "/products?line=motor" },
+  { label: "Property & Asset Mitigation", href: "/products?line=property" },
+  { label: "Marine & Transit Insurance", href: "/products?line=marine" },
+  { label: "Constructors CAR Insurance", href: "/products?line=construction" },
+  { label: "Fidelity Guarantee & Liabilities", href: "/products?line=liability" },
 ];
 
-const quickLinks = [
-  { label: "About Us", href: "/about" },
-  { label: "Our Products", href: "/products" },
-  { label: "Claims Center", href: "/claims" },
-  { label: "Contact Us", href: "/contact" },
+const ecosystemLinks = [
+  { label: "Corporate Profile", href: "/about" },
+  { label: "Underwriting Matrix", href: "/products" },
+  { label: "Claims Intake Hub", href: "/claims" },
+  { label: "Consultant Briefing", href: "/contact" },
 ];
 
 export default function Footer() {
   const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
+  const [isSubscribed, setIsSubscribed] = useState(false);
 
-  const handleSubscribe = (e: FormEvent) => {
+  const handleBriefingSubscribe = (e: FormEvent) => {
     e.preventDefault();
     if (email.trim()) {
-      setSubscribed(true);
+      setIsSubscribed(true);
       setEmail("");
-      setTimeout(() => setSubscribed(false), 4000);
+      setTimeout(() => setIsSubscribed(false), 4000);
     }
   };
 
   return (
     <footer className="relative w-full bg-slate-950 border-t border-slate-900 text-white selection:bg-blue-600 selection:text-white font-sans antialiased overflow-hidden">
-      <Container className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      {/* Structural Minimal Grid Canvas Lines */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-5">
+        <div className="max-w-7xl mx-auto h-full w-full grid grid-cols-4 gap-px bg-slate-800">
+          <div className="bg-slate-950 h-full" />
+          <div className="bg-slate-950 h-full" />
+          <div className="bg-slate-950 h-full" />
+          <div className="bg-slate-950 h-full" />
+        </div>
+      </div>
+
+      <Container className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Core Links Framework Matrix */}
-        <div className="py-12 lg:py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        {/* 1. UPPER STRATEGIC REGISTRY SECTION */}
+        <div className="py-12 border-b border-slate-900 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-7 space-y-2">
+            <h3 className="text-sm font-bold tracking-tight text-white uppercase">
+              Subscribe to the Risk Mitigation Executive Advisory
+            </h3>
+            <p className="text-xs text-slate-400 font-light max-w-xl leading-relaxed">
+              Receive quarterly risk compliance bulletins, sovereign general policy briefings, and structural updates tailored for enterprises in South Sudan.
+            </p>
+          </div>
           
-          {/* Column 1: Brand System + Flattened Newsletter (Balances Height) */}
-          <div className="lg:col-span-4 space-y-5">
+          <div className="lg:col-span-5 w-full">
+            <form onSubmit={handleBriefingSubscribe} className="flex border border-slate-800 bg-slate-900/10 focus-within:border-blue-600 focus-within:bg-slate-900/30 transition-all rounded-none p-1">
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter executive corporate email"
+                className="w-full bg-transparent px-3 py-2 text-xs text-white placeholder-slate-600 outline-none rounded-none font-medium"
+                disabled={isSubscribed}
+              />
+              <button
+                type="submit"
+                className="flex shrink-0 items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-5 text-xs font-bold uppercase tracking-wider transition-colors disabled:bg-emerald-950 disabled:text-emerald-400 rounded-none gap-2"
+                disabled={isSubscribed}
+                aria-label="Register Email Channel"
+              >
+                {isSubscribed ? (
+                  <>
+                    <Check className="h-3.5 w-3.5" />
+                    <span>Registered</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Join Framework</span>
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </>
+                )}
+              </button>
+            </form>
+          </div>
+        </div>
+
+        {/* 2. MAIN COHESIVE CORE LINKS MATRIX */}
+        <div className="py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 items-start">
+          
+          {/* Brand Presentation Profile Block */}
+          <div className="lg:col-span-4 space-y-6">
             <Link href="/" className="inline-block transition-opacity duration-150 hover:opacity-90">
               <Image
                 src="/logo (3).png"
-                alt="Koryom Insurance"
-                width={150}
-                height={50}
-                className="h-9 w-auto object-contain brightness-110"
+                alt="Koryom Insurance Blueprint"
+                width={160}
+                height={52}
+                className="h-10 w-auto object-contain brightness-110"
                 priority
               />
             </Link>
-            <p className="text-xs leading-relaxed text-slate-400 font-normal tracking-wide max-w-sm">
-              Koryom Insurance Company Limited delivers precision risk-engineered asset protection structures built for modern corporate operations in South Sudan.
+            <p className="text-xs leading-relaxed text-slate-400 font-light tracking-wide max-w-sm">
+              Koryom Insurance Company Limited delivers precision risk-engineered asset protection matrices engineered structurally for volatile operating landscapes across South Sudan.
             </p>
             
-            {/* Minimalist Structured Form Factor instead of pill variations */}
-            <div className="pt-2 max-w-sm">
-              <form onSubmit={handleSubscribe} className="flex border border-slate-800 bg-slate-900/20 focus-within:border-slate-700 transition-colors rounded-none">
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Corporate email updates"
-                  className="w-full bg-transparent px-3 py-2 text-xs text-white placeholder-slate-600 outline-none rounded-none"
-                  disabled={subscribed}
-                />
-                <button
-                  type="submit"
-                  className="flex shrink-0 items-center justify-center bg-slate-900 border-l border-slate-800 hover:bg-slate-800 px-4 text-xs font-bold uppercase tracking-wider text-slate-300 transition-colors disabled:bg-emerald-950 disabled:text-emerald-400 rounded-none"
-                  disabled={subscribed}
-                  aria-label="Register Email"
-                >
-                  {subscribed ? <Check className="h-3.5 w-3.5" /> : "Join"}
-                </button>
-              </form>
-              {subscribed && (
-                <p className="text-[10px] text-emerald-400 mt-1.5 font-medium uppercase tracking-wide">
-                  Email registered to advisory board updates.
-                </p>
-              )}
+            <div className="flex items-center gap-2 pt-1">
+              {[
+                { icon: LinkedinIcon, label: "LinkedIn Platform" },
+                { icon: FacebookIcon, label: "Facebook Channel" },
+                { icon: TwitterIcon, label: "Twitter Stream" }
+              ].map((social, i) => {
+                const Icon = social.icon;
+                return (
+                  <a 
+                    key={i} 
+                    href="#" 
+                    aria-label={social.label} 
+                    className="flex h-8 w-8 items-center justify-center border border-slate-900 bg-slate-900/10 text-slate-500 transition-all hover:border-slate-700 hover:bg-slate-900 hover:text-white rounded-none"
+                  >
+                    <Icon className="h-4 w-4" />
+                  </a>
+                );
+              })}
             </div>
           </div>
 
-          {/* Column 2: Quick Links */}
-          <div className="lg:col-span-2 space-y-4">
-            <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
-              Navigation
-            </h3>
-            <ul className="space-y-2.5">
-              {quickLinks.map((link) => (
+          {/* Core Navigation Pipeline */}
+          <div className="lg:col-span-2 space-y-4 lg:pl-4">
+            <h4 className="text-[10px] font-black uppercase tracking-[0.22em] text-slate-400 border-l-2 border-blue-600 pl-2">
+              Ecosystem Map
+            </h4>
+            <ul className="space-y-3">
+              {ecosystemLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="group flex items-center gap-1.5 text-xs text-slate-400 transition-colors duration-150 hover:text-white font-normal"
+                    className="group flex items-center gap-1.5 text-xs text-slate-400 transition-colors duration-150 hover:text-white font-medium"
                   >
-                    <span className="w-1 h-[1px] bg-slate-700 group-hover:w-2 group-hover:bg-blue-500 transition-all" />
+                    <span className="w-1 h-[1px] bg-slate-800 group-hover:w-2 group-hover:bg-blue-500 transition-all" />
                     {link.label}
                   </Link>
                 </li>
@@ -135,84 +182,72 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Corporate Products */}
-          <div className="lg:col-span-2 space-y-4">
-            <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
-              Protection Lines
-            </h3>
-            <ul className="space-y-2.5">
-              {products.map((product) => (
-                <li key={product}>
-                  <span className="group flex items-center gap-1.5 text-xs text-slate-400 transition-colors duration-150 hover:text-slate-200 cursor-pointer font-normal">
-                    <span className="w-1 h-[1px] bg-slate-800 group-hover:bg-slate-500" />
-                    {product}
-                  </span>
+          {/* Core Underwriting Products Coverage Matrix */}
+          <div className="lg:col-span-3 space-y-4">
+            <h4 className="text-[10px] font-black uppercase tracking-[0.22em] text-slate-400 border-l-2 border-blue-600 pl-2">
+              Underwriting Architectures
+            </h4>
+            <ul className="space-y-3">
+              {assetProtectionLines.map((product) => (
+                <li key={product.label}>
+                  <Link
+                    href={product.href}
+                    className="group flex items-center gap-1.5 text-xs text-slate-400 transition-colors duration-150 hover:text-slate-200 font-medium"
+                  >
+                    <span className="w-1 h-[1px] bg-slate-800 group-hover:bg-slate-500 transition-all" />
+                    {product.label}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Column 4: Operational Headquarters */}
-          <div className="lg:col-span-4 space-y-4">
-            <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
-              Headquarters
-            </h3>
-            <div className="space-y-3 text-xs font-normal tracking-wide text-slate-400">
-              <div className="flex items-start gap-2.5 leading-relaxed">
-                <MapPin className="h-4 w-4 shrink-0 text-slate-500 pt-0.5" />
-                <span>Buluk National Traffic Police HQs, Juba, South Sudan</span>
+          {/* Regional Institutional Headquarters Base Grid */}
+          <div className="lg:col-span-3 space-y-5">
+            <h4 className="text-[10px] font-black uppercase tracking-[0.22em] text-slate-400 border-l-2 border-blue-600 pl-2">
+              Operational Base
+            </h4>
+            <div className="space-y-3.5 text-xs font-normal tracking-wide text-slate-400">
+              <div className="flex items-start gap-3 leading-relaxed">
+                <MapPin className="h-4 w-4 shrink-0 text-slate-600 pt-0.5" />
+                <span className="font-light">Buluk National Traffic Police HQs,<br />Juba, Central Equatoria,<br />South Sudan</span>
               </div>
-              <div className="flex items-center gap-2.5">
-                <Phone className="h-3.5 w-3.5 shrink-0 text-slate-500" />
-                <a href="tel:+211927815160" className="hover:text-white transition-colors">
+              <div className="flex items-center gap-3 border-t border-slate-900/60 pt-3">
+                <Phone className="h-3.5 w-3.5 shrink-0 text-slate-600" />
+                <a href="tel:+211927815160" className="hover:text-white font-medium transition-colors">
                   +211 927 815 160
                 </a>
               </div>
-              <div className="flex items-center gap-2.5">
-                <Mail className="h-3.5 w-3.5 shrink-0 text-slate-500" />
-                <a href="mailto:info@koryominsurance.com" className="hover:text-white transition-colors break-all">
+              <div className="flex items-center gap-3">
+                <Mail className="h-3.5 w-3.5 shrink-0 text-slate-600" />
+                <a href="mailto:info@koryominsurance.com" className="hover:text-white font-medium transition-colors break-all">
                   info@koryominsurance.com
                 </a>
               </div>
             </div>
 
-            {/* Industrial Tag + Flat Sharp Social Blocks */}
-            <div className="pt-2 flex flex-wrap items-center gap-4 justify-between lg:justify-start">
-              <div className="inline-flex items-center gap-1.5 border border-slate-900 bg-slate-900/30 px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider text-slate-400 rounded-none">
-                <ShieldAlert className="h-3 w-3 text-blue-500" />
-                Est. 2020
-              </div>
-              <div className="flex items-center gap-2">
-                {[
-                  { icon: LinkedinIcon, label: "LinkedIn" },
-                  { icon: FacebookIcon, label: "Facebook" },
-                  { icon: TwitterIcon, label: "Twitter" }
-                ].map((social, i) => {
-                  const Icon = social.icon;
-                  return (
-                    <a key={i} href="#" aria-label={social.label} className="flex h-7 w-7 items-center justify-center border border-slate-900 bg-slate-900/20 text-slate-500 transition-colors hover:border-slate-700 hover:bg-slate-900 hover:text-white rounded-none">
-                      <Icon className="h-3.5 w-3.5" />
-                    </a>
-                  );
-                })}
+            <div className="pt-1">
+              <div className="inline-flex items-center gap-2 border border-slate-900 bg-slate-900/20 px-3 py-1.5 text-[9px] font-black uppercase tracking-wider text-slate-400 rounded-none">
+                <ShieldCheck className="h-3.5 w-3.5 text-blue-500" />
+                Licenced Operator Est. 2020
               </div>
             </div>
           </div>
 
         </div>
 
-        {/* Closing Metadata Framework */}
+        {/* 3. CLOSING COMPLIANCE & LEGAL BLUEPRINT TRACK */}
         <div className="border-t border-slate-900 py-6">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] uppercase font-bold tracking-widest text-slate-600">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-[9px] uppercase font-bold tracking-widest text-slate-600">
             <p className="text-center sm:text-left leading-normal">
-              © {new Date().getFullYear()} Koryom Insurance Company Limited. Statutory Protection Corporate Infrastructure.
+              © {new Date().getFullYear()} Koryom Insurance Company Limited. Statutory Protection Infrastructure. All Rights Reserved.
             </p>
-            <div className="flex gap-5 shrink-0">
+            <div className="flex gap-6 shrink-0">
               <Link href="/privacy-policy" className="hover:text-slate-400 transition-colors">
-                Privacy
+                Privacy Matrix
               </Link>
               <Link href="/terms" className="hover:text-slate-400 transition-colors">
-                Terms
+                Terms of Indemnity
               </Link>
             </div>
           </div>

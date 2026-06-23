@@ -136,6 +136,7 @@ export default function InsuranceProductsSection() {
         </div>
 
         {/* 2. PREMIUM ADAPTIVE METRIC CARD GRID */}
+        {/* Styled to precisely reference the design pattern visible in image_0a9ae4.png */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-px bg-slate-200 border-x border-b border-slate-200">
           {productMatrix.map((product) => {
             const Icon = product.icon;
@@ -148,10 +149,13 @@ export default function InsuranceProductsSection() {
                 onMouseEnter={() => setHoveredCard(product.id)}
                 onMouseLeave={() => setHoveredCard(null)}
               >
-                {/* Embedded High-Contrast Structural Image Underlay Track */}
+                {/* 
+                  Refined Graphic Background Structure matching image_0a9ae4.png.
+                  Uses an elegant light-blend transparency matrix instead of muddy dark masks.
+                */}
                 <div 
                   className={`absolute inset-0 z-0 transition-opacity duration-500 pointer-events-none ${
-                    isTargeted ? "opacity-15" : "opacity-0"
+                    isTargeted ? "opacity-35" : "opacity-0"
                   }`}
                 >
                   <Image
@@ -159,9 +163,9 @@ export default function InsuranceProductsSection() {
                     alt={product.title}
                     fill
                     sizes="(max-width: 640px) 100vw, 25vw"
-                    className="object-cover object-center grayscale contrast-125 transition-transform duration-700 scale-105 group-hover/card:scale-100"
+                    className="object-cover object-right-bottom mix-blend-multiply filter contrast-115 brightness-105 transition-transform duration-700 scale-100 group-hover/card:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-white via-white/90 to-white/10" />
                 </div>
 
                 {/* Card Structural Info Core */}
@@ -173,15 +177,17 @@ export default function InsuranceProductsSection() {
                       <Icon className="h-4 w-4 shrink-0" />
                     </div>
                     
-                    <div className="inline-flex items-center gap-1 bg-slate-50 border border-slate-200/60 px-2 py-0.5 text-[8px] font-bold text-slate-400 tracking-wider uppercase group-hover/card:border-slate-200 group-hover/card:text-slate-500">
-                      <Award className="h-2.5 w-2.5 text-slate-400" />
+                    <div className="inline-flex items-center gap-1 bg-slate-50 border border-slate-200/60 px-2 py-0.5 text-[8px] font-bold text-slate-400 tracking-wider uppercase group-hover/card:border-blue-100 group-hover/card:text-blue-500 transition-colors">
+                      <Award className="h-2.5 w-2.5 text-slate-400 group-hover/card:text-blue-400" />
                       {product.category}
                     </div>
                   </div>
 
                   {/* Core Heading Text Area */}
                   <div className="space-y-1.5">
-                    <h3 className="text-sm font-bold text-slate-900 tracking-tight group-hover/card:text-blue-600 transition-colors uppercase">
+                    <h3 className={`text-sm font-bold tracking-tight uppercase transition-colors duration-200 ${
+                      isTargeted ? "text-blue-600" : "text-slate-900"
+                    }`}>
                       {product.title}
                     </h3>
                     <p className="text-[11px] text-slate-500 leading-normal font-normal">
@@ -190,10 +196,12 @@ export default function InsuranceProductsSection() {
                   </div>
 
                   {/* Clean Technical Feature Matrix Lines */}
-                  <div className="pt-3 space-y-1.5 border-t border-slate-100">
+                  <div className="pt-4 space-y-2 border-t border-slate-100">
                     {product.features.map((feature, fIdx) => (
                       <div key={fIdx} className="flex items-center gap-2">
-                        <span className="w-1 h-1 bg-slate-300 group-hover/card:bg-blue-500 transition-colors shrink-0" />
+                        <span className={`w-1 h-1 transition-colors shrink-0 ${
+                          isTargeted ? "bg-blue-600" : "bg-slate-300"
+                        }`} />
                         <span className="text-[11px] font-medium text-slate-600 tracking-wide truncate">
                           {feature}
                         </span>
@@ -221,7 +229,7 @@ export default function InsuranceProductsSection() {
                   </Link>
                 </div>
 
-                {/* Subtle Structural Bottom Active Indicator Bar */}
+                {/* Subtle Structural Bottom Active Indicator Bar aligned with image_0a9ae4.png */}
                 <div 
                   className={`absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 transition-transform duration-300 transform origin-left ${
                     isTargeted ? "scale-x-100" : "scale-x-0"
