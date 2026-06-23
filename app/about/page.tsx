@@ -5,200 +5,243 @@ import {
   Shield,
   HeartPulse,
   Car,
-  Building2,
-  Ship,
+  Building,
+  Anchor,
   Briefcase,
   Users,
   Award,
   CheckCircle2,
-  Clock3,
+  Clock,
+  MapPin,
+  Phone,
+  Mail,
+  Compass,
+  Eye,
+  FileCheck2
 } from "lucide-react";
 
 import Container from "@/components/ui/container";
 
 const values = [
   {
-    title: "Integrity",
+    title: "Absolute Integrity",
     description:
-      "Built on transparency, accountability, and absolute trust in every client interaction.",
+      "Engineered on transparent structural underwriting accountability and absolute fiduciary trust in every custom policy transaction.",
   },
   {
-    title: "Excellence",
+    title: "Operational Excellence",
     description:
-      "Delivering rigorous, professional insurance solutions backed by responsive service.",
+      "Executing thorough risk evaluation protocols backed by agile, responsive asset verification and deployment models.",
   },
   {
-    title: "Innovation",
+    title: "Targeted Innovation",
     description:
-      "Creating modern protection frameworks engineered for evolving personal and corporate risks.",
+      "Crafting modern corporate safety nets built around volatile macro environments and emerging enterprise risk vectors.",
   },
   {
-    title: "Customer Focus",
+    title: "Client-Centric Guard",
     description:
-      "Centering our operational model around client stability, protection, and long-term security.",
+      "Centering our underwriting metrics around long-term capital preservation, household stability, and enterprise continuity.",
   },
 ];
 
 const reasons = [
-  "Rapid, dependable claims support when mitigation matters most",
-  "Comprehensive general and risk-stochastic life insurance options",
-  "Tailored risk-transference parameters for individuals and enterprise scales",
-  "Professional underwriting and proactive advisory management",
-  "Deep local expertise synced with robust regional market intelligence",
-  "Transparent contractual coverage execution absolute of unnecessary complexity",
+  "Rapid, dependable claims processing framework structured to reduce operational downtime.",
+  "Comprehensive cross-sector general insurance options customized to local market trends.",
+  "Agile risk-transference variables engineered for dynamic private, NGO, and corporate assets.",
+  "Meticulous actuarial verification processes supervised by certified corporate risk specialists.",
+  "Deep domestic execution intelligence matched with multi-layered regional market capabilities.",
+  "Transparent contractual coverage absolute of unnecessary administrative complexities.",
 ];
 
-const products = [
-  { icon: HeartPulse, title: "Health Insurance" },
-  { icon: Car, title: "Motor Insurance" },
-  { icon: Building2, title: "Property Insurance" },
-  { icon: Ship, title: "Marine Insurance" },
-  { icon: Briefcase, title: "Business Insurance" },
-  { icon: Shield, title: "Life Insurance" },
+const frameworks = [
+  { icon: HeartPulse, title: "Health & Corporate Wellness Schemes" },
+  { icon: Car, title: "Motor Vehicle Asset Protection" },
+  { icon: Building, title: "Fire, Burglary & Property Indemnity" },
+  { icon: Anchor, title: "Marine & Transit Cargo Security" },
+  { icon: Briefcase, title: "Employees Liability & Civil Safeguards" },
+  { icon: Shield, title: "Constructors All Risks & Credit Life" },
 ];
 
 export default function AboutPage() {
   return (
-    <main className="bg-white antialiased">
-      {/* HERO SECTION */}
-      <section className="relative overflow-hidden bg-slate-950 py-32 sm:py-40 lg:py-48">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-900/40 via-slate-950 to-slate-950" />
-          <div className="absolute left-1/4 top-0 h-[600px] w-[600px] rounded-full bg-cyan-500/10 blur-[120px]" />
-          <div className="absolute bottom-0 right-1/4 h-[600px] w-[600px] rounded-full bg-blue-600/10 blur-[120px]" />
-        </div>
+    <main className="bg-slate-50 text-slate-900 antialiased selection:bg-blue-900 selection:text-white">
+      
+      {/* SECTION 1: COMPACT INSTITUTIONAL HERO (Narrow High-Impact Profile) */}
+<section className="relative py-16 lg:py-20 bg-slate-950 text-white overflow-hidden border-b border-blue-900/30">
+  
+  {/* BACKGROUND IMAGE & LAYER ARCHITECTURE */}
+  <div className="absolute inset-0 z-0 pointer-events-none">
+    {/* The Underlying Image Asset */}
+    <Image
+      src="/images/car.jpg"
+      alt="Koryom Corporate Operations Underwriting Background"
+      fill
+      priority
+      className="object-cover object-center opacity-25 filter grayscale contrast-125 mix-blend-luminosity"
+    />
+    {/* The Linear Matte Mask Overlay */}
+    <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-blue-950/80" />
+  </div>
 
-        <Container className="relative z-10">
-          <div className="mx-auto max-w-4xl text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-cyan-300 backdrop-blur-md">
-              Koryom Insurance Company Limited
-            </span>
+  {/* FOREGROUND CONTENT LAYER */}
+  <Container className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 border-l-2 border-blue-500 pl-6">
+      <div className="max-w-3xl space-y-2">
+        <span className="text-[10px] uppercase font-bold tracking-[0.3em] text-blue-400 block">
+          Corporate Legacy & Positioning
+        </span>
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold tracking-tight text-white">
+          Koryom Insurance Company Limited
+        </h1>
+        <p className="text-xs sm:text-sm text-slate-400 max-w-xl font-normal leading-relaxed">
+          Mitigating structural uncertainties and anchoring corporate asset trajectories across South Sudan with premier, specialized risk portfolios.
+        </p>
+      </div>
+      
+      <div className="flex sm:items-center gap-3 shrink-0">
+        <Link
+          href="/contact"
+          className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold uppercase tracking-wider py-3.5 px-6 rounded-none transition-colors duration-200"
+        >
+          Corporate Desk
+          <ArrowRight size={14} />
+        </Link>
+      </div>
+    </div>
+  </Container>
+</section>
 
-            <h1 className="mt-8 text-4xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl">
-              Your World,{" "}
-              <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent">
-                Protected.
-              </span>
-            </h1>
-
-            <p className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-slate-400 sm:text-lg md:text-xl">
-              Engineered to manage uncertainty, we buffer today's risk parameters so you can execute tomorrow's vision. Delivering premier corporate and consumer protection solutions across South Sudan.
-            </p>
-
-            <div className="mt-12 flex flex-col justify-center gap-4 sm:flex-row sm:items-center">
-              <Link
-                href="/quote"
-                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-semibold text-slate-950 shadow-sm transition-all duration-200 hover:bg-slate-50 hover:shadow"
-              >
-                Get a Quote
-                <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
-              </Link>
-
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-xl border border-slate-800 bg-slate-900/50 px-6 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:border-slate-700 hover:bg-slate-900"
-              >
-                Contact Us
-              </Link>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* CORPORATE PROFILE */}
-      <section className="py-24 sm:py-32">
-        <Container>
+      {/* SECTION 2: INSTITUTIONAL BACKGROUND & CORE ORIGINS */}
+      <section className="py-20 bg-white">
+        <Container className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
-            <div className="lg:col-span-7">
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600">
-                Who We Are
-              </span>
+            
+            <div className="lg:col-span-7 space-y-6">
+              <div className="space-y-2">
+                <span className="text-xs font-bold uppercase tracking-widest text-blue-600 block">
+                  Historical Blueprint
+                </span>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-slate-900 tracking-tight">
+                  Formulated on Accountability, Scaled to Safeguard Assets
+                </h2>
+              </div>
 
-              <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
-                Mitigating Risk Through Trust & Operational Excellence
-              </h2>
-
-              <div className="mt-6 space-y-6 text-base leading-relaxed text-slate-600 sm:text-lg">
+              <div className="space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                 <p>
-                  Established as an incorporated enterprise on{" "}
-                  <strong className="font-semibold text-slate-900">February 28, 2020</strong>, 
-                  Koryom Insurance Company Limited has systematically scale-optimized its structural layout to stand as a definitive anchor for corporate risk advisory and complete insurance distribution models.
+                  Established as a thoroughly incorporated underwriting enterprise on{" "}
+                  <strong className="font-semibold text-slate-900">February 28, 2020</strong>[cite: 1], 
+                  Koryom Insurance Company Limited has systematically optimized its layout to serve as a reliable anchor for corporate risk advisory and complete insurance distribution models[cite: 1].
                 </p>
-
                 <p>
-                  We align an expanding catalog of general risk protection matrixes with tailored life structures to guard against asset depreciation, volatile liabilities, and unforeseen disruptions affecting local families, NGOs, and commerce.
+                  We coordinate an expanding portfolio of general risk protection metrics with tailored specialized structures[cite: 1]. This comprehensive setup is precisely engineered to protect against asset depreciation, volatile liabilities, and unforeseen disruptions impacting commerce, humanitarian NGOs, and private families[cite: 1].
                 </p>
-
                 <p>
-                  Rather than distributing static policies, Koryom integrates dynamic client consultations to pinpoint environmental and operational exposures. Our specialized risk specialists build clean protection portfolios coupled with responsive claim verification architecture.
+                  Rather than deploying generic, rigid contracts, Koryom integrates dynamic on-site client risk assessments[cite: 1]. Our specialized underwriting specialists pinpoint regional environmental and operational exposures, tailoring absolute coverage profiles backed by responsive claim validation networks[cite: 1].
                 </p>
+              </div>
+
+              {/* Physical Location Anchors */}
+              <div className="pt-4 grid sm:grid-cols-2 gap-4 border-t border-slate-100 text-xs text-slate-500 font-medium">
+                <div className="flex items-start gap-2.5">
+                  <MapPin className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" />
+                  <span>HQ Hub: Buluk National Traffic police Ghqs, Juba, South Sudan[cite: 1]</span>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <Phone className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" />
+                  <span>Contact Pipeline: +211 927 815 160[cite: 1]</span>
+                </div>
               </div>
             </div>
 
+            {/* Architectural Profile Card */}
             <div className="lg:col-span-5">
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl bg-slate-100 shadow-xl ring-1 ring-slate-900/5">
+              <div className="relative aspect-video sm:aspect-[4/3] lg:aspect-[4/5] w-full bg-slate-100 overflow-hidden border-4 border-slate-100 shadow-xl rounded-none group">
                 <Image
-                  src="/images/marin.png"
-                  alt="Koryom Corporate Operations"
+                  src="/images/motor.jpg"
+                  alt="Koryom Corporate Risk Assessment Infrastructure"
                   fill
-                  priority
-                  className="object-cover"
+                  className="object-cover w-full h-full object-center transition-transform duration-700 group-hover:scale-102"
                 />
+                <div className="absolute inset-0 bg-slate-950/20" />
+                <div className="absolute bottom-4 left-4 right-4 bg-slate-900/95 text-white p-4 rounded-none border-l-2 border-blue-500 backdrop-blur-xs">
+                  <p className="text-[10px] uppercase tracking-widest text-blue-400 font-bold mb-1">HQ Logistics</p>
+                  <p className="text-xs text-slate-300 font-normal">Operational command centered strategically within the national traffic infrastructure loop in Juba[cite: 1].</p>
+                </div>
               </div>
             </div>
+
           </div>
         </Container>
       </section>
 
-      {/* CORE STRATEGY */}
-      <section className="bg-slate-50 py-24 sm:py-32 border-y border-slate-100">
-        <Container>
+      <hr className="border-slate-200 max-w-7xl mx-auto" />
+
+      {/* SECTION 3: STRATEGIC AXIS (Vision & Mission Dual Formats) */}
+      <section className="py-20 bg-slate-50">
+        <Container className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 md:grid-cols-2">
-            <div className="relative rounded-2xl border border-slate-200/60 bg-white p-8 shadow-sm transition-shadow duration-300 hover:shadow-md">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
-                <Award size={24} />
+            
+            {/* Vision Block */}
+            <div className="bg-white border border-slate-200 p-8 rounded-none flex flex-col justify-between shadow-xs hover:border-slate-300 transition-colors">
+              <div className="space-y-4">
+                <div className="h-10 w-10 flex items-center justify-center bg-blue-50 text-blue-600 rounded-none border border-blue-100">
+                  <Compass className="h-5 w-5" />
+                </div>
+                <h3 className="text-xl font-serif font-bold text-slate-900">Corporate Vision</h3>
+                <p className="text-xs sm:text-sm leading-relaxed text-slate-600 font-normal">
+                  To stand as the absolute regional benchmark of financial trust and accessible protection across regional structures, empowering commercial entities and civic societies to cultivate capital and legacy confidently[cite: 1].
+                </p>
               </div>
-              <h3 className="mt-6 text-xl font-bold text-slate-900">Vision</h3>
-              <p className="mt-4 text-base leading-relaxed text-slate-600">
-                To stand as the absolute benchmark of financial trust and accessible protection across regional structures, empowering businesses and civic societies to cultivate capital and legacy confidently.
-              </p>
+              <div className="mt-6 pt-4 border-t border-slate-100 text-[11px] uppercase tracking-widest font-bold text-slate-400">
+                Strategic Foresight
+              </div>
             </div>
 
-            <div className="relative rounded-2xl bg-slate-950 p-8 shadow-xl">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-900 text-cyan-400 ring-1 ring-white/10">
-                <Shield size={24} />
+            {/* Mission Block */}
+            <div className="bg-slate-950 text-white p-8 rounded-none flex flex-col justify-between shadow-xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 h-24 w-24 bg-blue-600/10 blur-2xl rounded-none" />
+              <div className="space-y-4 relative z-10">
+                <div className="h-10 w-10 flex items-center justify-center bg-slate-900 text-blue-400 rounded-none border border-slate-800">
+                  <Eye className="h-5 w-5" />
+                </div>
+                <h3 className="text-xl font-serif font-bold text-white">Underwriting Mission</h3>
+                <p className="text-xs sm:text-sm leading-relaxed text-slate-300 font-normal">
+                  To design bulletproof indemnity systems, maintain high-standard actuarial governance, and administer predictive risk engineering framework solutions that immunize client assets against localized and macro uncertainties[cite: 1].
+                </p>
               </div>
-              <h3 className="mt-6 text-xl font-bold text-white">Mission</h3>
-              <p className="mt-4 text-base leading-relaxed text-slate-300">
-                To design bulletproof indemnity systems, maintain high-standard actuarial governance, and administer predictive risk engineering framework solutions that immunize client assets against localized and macro uncertainties.
-              </p>
+              <div className="mt-6 pt-4 border-t border-slate-800 text-[11px] uppercase tracking-widest font-bold text-blue-400 relative z-10">
+                Tactical Execution
+              </div>
             </div>
+
           </div>
         </Container>
       </section>
 
-      {/* STRATEGIC VALUES */}
-      <section className="py-24 sm:py-32">
-        <Container>
-          <div className="max-w-2xl">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600">
-              Our Culture
+      {/* SECTION 4: GUIDING PRINCIPLES CULTURE MATRIX (Raw Sharp Grid) */}
+      <section className="py-20 bg-white border-y border-slate-200">
+        <Container className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl mb-12">
+            <span className="text-xs font-bold uppercase tracking-widest text-blue-600 block">
+              Our Governance
             </span>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-              Principles That Govern Our Underwriting
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900 tracking-tight mt-1">
+              Principles That Govern Our Underwriting Contracts
             </h2>
           </div>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((value) => (
               <div
                 key={value.title}
-                className="group relative rounded-2xl border border-slate-200/80 p-6 transition-all duration-200 hover:-translate-y-1 hover:border-slate-300 hover:shadow-md"
+                className="bg-slate-50 border border-slate-200/80 p-6 rounded-none hover:bg-white hover:border-blue-500 transition-all duration-200 group"
               >
-                <h3 className="text-lg font-bold text-slate-900 transition-colors duration-200 group-hover:text-blue-600">
+                <div className="h-1 w-8 bg-slate-300 group-hover:bg-blue-600 mb-4 transition-colors rounded-none" />
+                <h3 className="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
                   {value.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                <p className="mt-2 text-xs leading-relaxed text-slate-500 font-normal">
                   {value.description}
                 </p>
               </div>
@@ -207,136 +250,122 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* WHY KORYOM */}
-      <section className="bg-slate-950 py-24 sm:py-32 text-white">
-        <Container>
-          <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
-            <div className="lg:col-span-5 lg:sticky lg:top-8">
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">
-                Why Partner With Us
+      {/* SECTION 5: SYSTEMATIC BENEFIT RISK ANALYSIS (Sticky Layout) */}
+      <section className="bg-slate-950 py-20 text-white overflow-hidden">
+        <Container className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-12 items-start">
+            
+            <div className="lg:col-span-5 lg:sticky lg:top-12 space-y-4">
+              <span className="text-xs font-bold uppercase tracking-widest text-blue-400 block">
+                Fiduciary Realities
               </span>
-              <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+              <h2 className="text-2xl sm:text-3xl font-serif font-bold tracking-tight text-white">
                 Engineered Performance, Professional Service
               </h2>
-              <p className="mt-4 text-base leading-relaxed text-slate-400">
-                We design past superficial contract definitions to guarantee that fiscal exposures are structured with precise attention to detail, proactive compliance, and absolute fiduciary alignment.
+              <p className="text-xs sm:text-sm leading-relaxed text-slate-400 font-normal">
+                We design past superficial contract definitions to guarantee that fiscal exposures are structured with precise attention to detail, proactive compliance, and absolute fiduciary alignment[cite: 1].
               </p>
             </div>
 
-            <div className="space-y-4 lg:col-span-7">
+            <div className="space-y-3 lg:col-span-7">
               {reasons.map((item, index) => (
                 <div
                   key={index}
-                  className="flex gap-4 rounded-xl border border-slate-900 bg-slate-900/40 p-5 backdrop-blur-sm transition-colors duration-200 hover:border-slate-800"
+                  className="flex gap-4 bg-slate-900/60 border border-slate-900 p-5 rounded-none hover:border-slate-800 transition-colors"
                 >
-                  <CheckCircle2 className="mt-0.5 shrink-0 text-cyan-400" size={18} />
-                  <p className="text-sm font-medium text-slate-300">{item}</p>
+                  <CheckCircle2 className="mt-0.5 shrink-0 text-blue-400 h-4 w-4" />
+                  <p className="text-xs sm:text-sm font-medium text-slate-300 leading-relaxed">{item}</p>
                 </div>
               ))}
             </div>
+
           </div>
         </Container>
       </section>
 
-      {/* INSURANCE SOLUTIONS MATRIX */}
-      <section className="py-24 sm:py-32">
-        <Container>
-          <div className="text-center">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600">
+      {/* SECTION 6: THE MATRIX REFERENCE GRID */}
+      <section className="py-20 bg-white">
+        <Container className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
+            <span className="text-xs font-bold uppercase tracking-widest text-blue-600 block">
               Core Frameworks
             </span>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900 tracking-tight">
               Comprehensive Capital & Asset Indemnity
             </h2>
           </div>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {products.map((product) => {
-              const Icon = product.icon;
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {frameworks.map((framework) => {
+              const Icon = framework.icon;
               return (
                 <div
-                  key={product.title}
-                  className="group flex items-center gap-5 rounded-2xl border border-slate-200/70 p-6 transition-all duration-200 hover:border-blue-200 hover:bg-slate-50/50 hover:shadow-sm"
+                  key={framework.title}
+                  className="flex items-center gap-4 border border-slate-200 p-4 rounded-none bg-white hover:bg-slate-50 transition-colors group"
                 >
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 transition-transform duration-200 group-hover:scale-105">
-                    <Icon size={22} />
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center bg-blue-50 text-blue-600 rounded-none border border-blue-100 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                    <Icon size={18} className="stroke-[2]" />
                   </div>
-                  <h3 className="text-base font-bold text-slate-900">
-                    {product.title}
+                  <h3 className="text-xs sm:text-sm font-bold text-slate-900 tracking-tight">
+                    {framework.title}
                   </h3>
                 </div>
               );
             })}
           </div>
-        </Container>
-      </section>
 
-      {/* PERFORMANCE METRICS */}
-      <section className="bg-slate-50 py-20 border-t border-slate-200/60">
-        <Container>
-          <div className="grid gap-8 grid-cols-2 lg:grid-cols-4">
-            <div className="text-center">
-              <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
-                <Clock3 size={20} />
-              </div>
-              <h3 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">2020</h3>
-              <p className="mt-1 text-xs font-medium uppercase tracking-wider text-slate-500">Incorporated</p>
+          {/* HISTORICAL PROGRESS BENCHMARKS */}
+          <div className="mt-16 pt-12 border-t border-slate-100 grid gap-6 grid-cols-2 lg:grid-cols-4 text-center">
+            <div className="space-y-1">
+              <div className="mx-auto flex h-8 w-8 items-center justify-center bg-slate-100 text-slate-700 rounded-none"><Clock size={16} /></div>
+              <h4 className="text-2xl font-serif font-bold text-slate-900">2020</h4>
+              <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Incorporation Year</p>
             </div>
-
-            <div className="text-center">
-              <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
-                <Shield size={20} />
-              </div>
-              <h3 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">15+</h3>
-              <p className="mt-1 text-xs font-medium uppercase tracking-wider text-slate-500">Product Matrixes</p>
+            <div className="space-y-1">
+              <div className="mx-auto flex h-8 w-8 items-center justify-center bg-slate-100 text-slate-700 rounded-none"><FileCheck2 size={16} /></div>
+              <h4 className="text-2xl font-serif font-bold text-slate-900">10+</h4>
+              <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Underwriting Classes</p>
             </div>
-
-            <div className="text-center">
-              <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
-                <Users size={20} />
-              </div>
-              <h3 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">100%</h3>
-              <p className="mt-1 text-xs font-medium uppercase tracking-wider text-slate-500">Client Centric</p>
+            <div className="space-y-1">
+              <div className="mx-auto flex h-8 w-8 items-center justify-center bg-slate-100 text-slate-700 rounded-none"><Users size={16} /></div>
+              <h4 className="text-2xl font-serif font-bold text-slate-900">100%</h4>
+              <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Client Compliance</p>
             </div>
-
-            <div className="text-center">
-              <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
-                <Award size={20} />
-              </div>
-              <h3 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">24/7</h3>
-              <p className="mt-1 text-xs font-medium uppercase tracking-wider text-slate-500">Advisory Pipeline</p>
+            <div className="space-y-1">
+              <div className="mx-auto flex h-8 w-8 items-center justify-center bg-slate-100 text-slate-700 rounded-none"><Award size={16} /></div>
+              <h4 className="text-2xl font-serif font-bold text-slate-900">Direct</h4>
+              <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Claims Resolution</p>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* CALL TO ACTION */}
-      <section className="relative overflow-hidden py-24 sm:py-32">
-        <div className="absolute inset-0 bg-slate-950" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,_var(--tw-gradient-stops))] from-blue-950 via-slate-950 to-cyan-950 opacity-90" />
-        
-        <Container className="relative z-10">
-          <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-8 text-center backdrop-blur-xl sm:p-16 lg:p-20">
-            <h2 className="mx-auto max-w-3xl text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
-              Ready to Protect What Matters Most?
-            </h2>
+      {/* SECTION 7: STARK CONVERSIONAL PIPELINE BRIDGING FOOTER */}
+      <section className="bg-slate-900 text-white py-16 relative overflow-hidden border-t border-slate-800">
+        <Container className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold tracking-tight">
+            Protect Your Trajectory With Koryom
+          </h2>
+          <p className="mx-auto max-w-xl text-xs sm:text-sm text-slate-400 leading-relaxed font-normal">
+            Consult immediately with an asset security specialist at our Juba operational headquarters based directly within the Buluk National Traffic police compound loop[cite: 1].
+          </p>
+          
+          <div className="pt-2 flex flex-col sm:flex-row justify-center items-center gap-4 max-w-xs sm:max-w-md mx-auto">
+            <Link
+              href="/contact"
+              className="w-full sm:w-auto text-center bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold uppercase tracking-wider py-3.5 px-8 rounded-none transition-colors shadow-md"
+            >
+              Initiate Risk Assessment
+            </Link>
+          </div>
 
-            <p className="mx-auto mt-6 max-w-2xl text-base text-slate-400 sm:text-lg">
-              Partner with Koryom Insurance Company Limited and insulate your corporate or personal trajectory with tailored, institutional-grade risk coverage.
-            </p>
-
-            <div className="mt-10">
-              <Link
-                href="/quote"
-                className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-semibold text-slate-950 shadow-sm transition-transform duration-200 hover:-translate-y-0.5 hover:bg-slate-50"
-              >
-                Get a Quote
-                <ArrowRight size={16} />
-              </Link>
-            </div>
+          <div className="pt-6 flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-[10px] text-slate-500 font-mono tracking-tight">
+            <span className="flex items-center gap-1"><Phone className="h-3 w-3" /> Dial: +211 927 815 160</span>[cite: 1]
+            <span className="flex items-center gap-1"><Mail className="h-3 w-3" /> Underwriting: Koryominsuranc65@gmail.com</span>[cite: 1]
           </div>
         </Container>
       </section>
+
     </main>
   );
 }
