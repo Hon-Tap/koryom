@@ -225,7 +225,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <span className="block text-[9px] uppercase font-mono text-slate-400">Underwriting Desk</span>
-                      <p className="font-bold text-slate-900 mt-0.5 break-all">Koryominsuranc65@gmail.com</p>
+                      <p className="font-bold text-slate-900 mt-0.5 break-all">info@koryominsurance.com</p>
                     </div>
                   </div>
                 </div>

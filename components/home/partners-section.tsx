@@ -59,7 +59,7 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section className="relative w-full bg-gradient-to-r from-blue-600 via-blue-700 to-slate-900 py-20 lg:py-28 overflow-hidden font-sans antialiased text-white">
+    <section className="relative w-full bg-gradient-to-r from-slate-600 via-blue-700 to-slate-900 py-20 lg:py-28 overflow-hidden font-sans antialiased text-white">
       
       {/* Decorative Overlay Watermark representing corporate handshake textures from image_0aa685.jpg */}
       <div className="absolute inset-0 opacity-10 bg-[url('/images/handshake-overlay.jpg')] bg-cover bg-center mix-blend-overlay pointer-events-none" />
