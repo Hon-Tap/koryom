@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 
 import Container from "@/components/ui/container";
-// Import your central data matrix matching the main products layout
+// Central structured data file mapping matching slugs
 import { productCategories } from "@/data/products";
 
 interface ProductPageProps {
@@ -21,17 +21,17 @@ interface ProductPageProps {
 }
 
 export default async function IndividualProductPage({ params }: ProductPageProps) {
-  // Await params safely under Next.js 15 guidelines
+  // Await page dynamic parameters securely under Next.js 15 routing conventions
   const resolvedParams = await params;
   const { slug } = resolvedParams;
 
-  // Flatten out all items from categories to isolate the matching product
+  // Isolate product profiles across categorical arrays
   const allProducts = productCategories.flatMap((category) => category.items);
   
-  // Find the explicit product match using the slug key from the data matrix
+  // Explicit lookup corresponding with the search dropdown's destination routes
   const product = allProducts.find((p) => p.slug === slug);
 
-  // Fallback cleanly to your configuration's global 404 handler if slug is invalid
+  // Fallback to global 404 cleanly if page target matrix contains an undefined slug path
   if (!product) {
     notFound();
   }
@@ -41,9 +41,9 @@ export default async function IndividualProductPage({ params }: ProductPageProps
   return (
     <main className="bg-slate-50 text-slate-900 antialiased font-sans selection:bg-blue-900 selection:text-white">
       
-      {/* SECTION 1: SPLIT HERO HEADER (Fixes image visibility cleanly) */}
+      {/* SECTION 1: SYSTEM VISIBILITY SPLIT HERO SECTION */}
       <section className="relative bg-slate-950 text-white py-12 lg:py-20 overflow-hidden border-b border-slate-800">
-        {/* Abstract institutional background detail */}
+        {/* Institutional Background Framework Grid Design */}
         <div className="absolute inset-0 z-0 opacity-20 mix-blend-overlay pointer-events-none">
           <div className="absolute inset-0 bg-[radial-gradient(#1e3a8a_1px,transparent_1px)] [background-size:16px_16px]" />
         </div>
@@ -51,7 +51,7 @@ export default async function IndividualProductPage({ params }: ProductPageProps
         <Container className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
             
-            {/* Left Side: Typography & Metadata */}
+            {/* Grid Column Right Left Segment: Structural Typography */}
             <div className="lg:col-span-7 space-y-6">
               <Link
                 href="/products"
@@ -76,11 +76,11 @@ export default async function IndividualProductPage({ params }: ProductPageProps
               </div>
             </div>
 
-            {/* Right Side: Visible Content Image Frame */}
+            {/* Grid Column Right Sidebar Segment: Framework Underwriting Document Display */}
             <div className="lg:col-span-5">
               <div className="relative aspect-[16/10] sm:aspect-[21/9] lg:aspect-[4/3] w-full bg-slate-900 border border-slate-800 shadow-2xl overflow-hidden rounded-none group/hero-img">
                 <Image
-                  src={product.image} // Displays the exact image cleanly and visibly
+                  src={product.image}
                   alt={`${product.title} Policy Protection Sheet`}
                   fill
                   priority
@@ -95,15 +95,15 @@ export default async function IndividualProductPage({ params }: ProductPageProps
         </Container>
       </section>
 
-      {/* SECTION 2: POLICIES & PARAMETERS GRANULAR OVERVIEW */}
+      {/* SECTION 2: GRANULAR SYSTEM POLICIES & INSULATION CRITERIA */}
       <section className="py-16 lg:py-20">
         <Container className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-12 items-start">
             
-            {/* Left Content Side */}
+            {/* Primary Details Panel Block Layout */}
             <div className="lg:col-span-7 space-y-8">
               
-              {/* Coverage Parameters Description */}
+              {/* Coverage Risk Underwriting Guidelines Description */}
               <div className="bg-white border border-slate-200/80 p-6 sm:p-8 rounded-none shadow-xs space-y-4">
                 <h3 className="text-xl font-serif font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
                   <ShieldCheck className="h-5 w-5 text-blue-600" /> Coverage Parameters & Mandates
@@ -116,13 +116,13 @@ export default async function IndividualProductPage({ params }: ProductPageProps
                 </p>
               </div>
 
-              {/* Bullet Inclusions Matrix */}
+              {/* Risk Feature Points Inclusions Grid Matrix */}
               <div className="bg-white border border-slate-200/80 p-6 sm:p-8 rounded-none shadow-xs space-y-4">
                 <h3 className="text-xl font-serif font-bold text-slate-900 border-b border-slate-100 pb-3">
                   Core Policy Benefits & Inclusions
                 </h3>
                 <div className="grid gap-3">
-                  {product.features.map((feature, index) => (
+                  {product.features?.map((feature, index) => (
                     <div 
                       key={index} 
                       className="flex items-start gap-3.5 p-4 bg-slate-50 border border-slate-100 rounded-none hover:border-slate-200 transition-colors"
@@ -138,10 +138,10 @@ export default async function IndividualProductPage({ params }: ProductPageProps
 
             </div>
 
-            {/* Right Sidebar Interactive Action Card */}
+            {/* Sticky Interaction Column Right Layout Section */}
             <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-8">
               
-              {/* Secure This Line Box */}
+              {/* Underwriting Request Processing Console Card */}
               <div className="bg-slate-900 text-white p-6 sm:p-8 border-t-4 border-blue-500 rounded-none shadow-md space-y-6">
                 <div>
                   <h4 className="text-lg font-serif font-bold text-white">
@@ -155,13 +155,13 @@ export default async function IndividualProductPage({ params }: ProductPageProps
                 <div className="space-y-3 pt-2">
                   <Link
                     href="/contact"
-                    className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold uppercase tracking-wider py-3.5 px-4 rounded-none transition-colors w-full text-center tracking-widest"
+                    className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold uppercase py-3.5 px-4 rounded-none transition-colors w-full text-center tracking-widest"
                   >
                     Request Underwriting Quote
                   </Link>
                   <Link
                     href="mailto:Koryominsuranc65@gmail.com"
-                    className="flex items-center justify-center gap-2 border border-slate-700 bg-slate-950 hover:bg-slate-800 text-slate-200 text-xs font-bold uppercase tracking-wider py-3.5 px-4 rounded-none transition-colors w-full text-center tracking-widest"
+                    className="flex items-center justify-center gap-2 border border-slate-700 bg-slate-950 hover:bg-slate-800 text-slate-200 text-xs font-bold uppercase py-3.5 px-4 rounded-none transition-colors w-full text-center tracking-widest"
                   >
                     Email Core Desk
                   </Link>
@@ -179,7 +179,7 @@ export default async function IndividualProductPage({ params }: ProductPageProps
                 </div>
               </div>
 
-              {/* Local Headquarters Desk Helpbox */}
+              {/* Juba Liaison Hotline Assistance Component */}
               <div className="bg-white border border-slate-200 p-6 rounded-none text-center space-y-3 shadow-xs">
                 <div className="mx-auto bg-blue-50 text-blue-900 p-2.5 border border-blue-100 rounded-none w-fit">
                   <PhoneCall className="h-4 w-4" />

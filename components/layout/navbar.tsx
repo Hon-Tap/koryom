@@ -364,7 +364,7 @@ export default function Navbar() {
             </div>
             <div className="flex items-center gap-2.5">
               <Mail className="h-3.5 w-3.5 text-slate-400" />
-              <span className="truncate">Koryominsuranc65@gmail.com</span>
+              <span className="truncate">info@koryominsurance.com</span>
             </div>
             <div className="flex items-start gap-2.5">
               <MapPin className="h-3.5 w-3.5 text-slate-400 shrink-0 mt-0.5" />

@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   ArrowUpRight,
   Search,
@@ -15,6 +16,8 @@ import {
 } from "lucide-react";
 
 import Container from "../ui/container";
+// Central structured data matrix mapping dynamic item slugs
+import { productCategories } from "@/data/products";
 
 const slides = [
   {
@@ -46,6 +49,7 @@ const slides = [
 const AUTO_PLAY_INTERVAL = 7000;
 
 export default function Hero() {
+  const router = useRouter();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
@@ -67,6 +71,31 @@ export default function Hero() {
     const interval = setInterval(nextSlide, AUTO_PLAY_INTERVAL);
     return () => clearInterval(interval);
   }, []);
+
+  // Isolate active lookup items across all configuration categories
+const searchableProducts = productCategories.flatMap((category) =>
+  category.items.map((item) => ({
+    title: item.title,
+    slug: item.slug,
+    categoryName: category.categoryTitle, // <-- Fixed here
+  }))
+);
+
+  // Filter live matches instantly based on current user search queries
+  const activeMatches = searchQuery.trim() === ""
+    ? []
+    : searchableProducts.filter((product) =>
+        product.title.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+
+  // Handle manual keyboard submission resolutions cleanly
+  const handleSearchResolution = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (activeMatches.length > 0) {
+      router.push(`/products/${activeMatches[0].slug}`);
+      setSearchQuery("");
+    }
+  };
 
   const CurrentMetaIcon = slides[currentSlide].metaIcon;
 
@@ -94,7 +123,6 @@ export default function Hero() {
                   isActive && isLoaded ? "scale-102" : "scale-100"
                 }`}
               />
-              {/* Flat dark mask instead of smoky multi-gradient blocks */}
               <div className="absolute inset-0 bg-slate-950/40" />
             </div>
           );
@@ -213,10 +241,10 @@ export default function Hero() {
             </div>
           </div>
           
-          {/* Functional Form Element Group */}
-          <form onSubmit={(e) => e.preventDefault()} className="flex flex-col sm:flex-row items-stretch gap-2">
+          {/* Functional Search Architecture Form Layout */}
+          <form onSubmit={handleSearchResolution} className="flex flex-col sm:flex-row items-stretch gap-2 relative">
             <div className="relative flex-1">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-slate-400" />
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-slate-400 z-10" />
               <input
                 type="text"
                 placeholder="Search corporate covers, liability matrices, marine protection plans..."
@@ -224,14 +252,38 @@ export default function Hero() {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full bg-slate-50 border border-slate-200 pl-10 pr-4 py-3 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:bg-white transition-all rounded-none font-medium"
               />
+
+              {/* Dynamic Overlay Matches List Display dropdown panel */}
+              {activeMatches.length > 0 && (
+                <div className="absolute left-0 right-0 top-full mt-1 bg-white border border-slate-200 shadow-xl z-50 max-h-64 overflow-y-auto rounded-none divide-y divide-slate-100">
+                  {activeMatches.map((product) => (
+                    <button
+                      key={product.slug}
+                      type="button"
+                      onClick={() => {
+                        router.push(`/products/${product.slug}`);
+                        setSearchQuery("");
+                      }}
+                      className="w-full text-left px-4 py-3 text-xs text-slate-700 hover:bg-slate-50 hover:text-blue-600 transition-colors flex justify-between items-center group/item"
+                    >
+                      <span className="font-semibold tracking-wide group-hover/item:translate-x-0.5 transition-transform">
+                        {product.title}
+                      </span>
+                      <span className="text-[9px] bg-slate-100 border border-slate-200/60 px-2 py-0.5 text-slate-400 font-bold uppercase tracking-widest rounded-none shrink-0 ml-4">
+                        {product.categoryName}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
 
             <button
-              type="button"
+              type="submit"
               className="inline-flex items-center justify-center gap-2 px-5 py-3 border border-slate-200 bg-slate-50 hover:bg-slate-100 text-[11px] font-bold uppercase tracking-wider text-slate-700 transition-colors shrink-0 rounded-none"
             >
               <SlidersHorizontal className="h-3.5 w-3.5 text-slate-500" />
-              Filter Matrix
+              Execute Search
             </button>
           </form>
         </div>
